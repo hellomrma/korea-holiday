@@ -1,0 +1,628 @@
+{
+  "2025": [
+    {
+      "name": "2025 World Athletics Championships Daegu",
+      "date": "2025-08-23",
+      "endDate": "2025-08-31",
+      "type": "스포츠",
+      "location": "Daegu, South Korea",
+      "description": "World's premier athletics competition"
+    },
+    {
+      "name": "2025 Summer Universiade",
+      "date": "2025-07-11",
+      "endDate": "2025-07-22",
+      "type": "스포츠",
+      "location": "Rhine-Ruhr, Germany",
+      "description": "World University Games"
+    },
+    {
+      "name": "2025 AFC Asian Cup",
+      "date": "2025-01-04",
+      "endDate": "2025-02-01",
+      "type": "스포츠",
+      "location": "Qatar",
+      "description": "Asia's premier football tournament"
+    },
+    {
+      "name": "Artemis 3 Moon Landing Mission",
+      "date": "2025-09",
+      "type": "우주/과학",
+      "location": "Moon",
+      "description": "NASA's Artemis program Phase 3, first moon landing since 1972"
+    },
+    {
+      "name": "Europa Clipper Launch",
+      "date": "2025-10",
+      "type": "우주/과학",
+      "location": "Jupiter's moon Europa",
+      "description": "NASA's mission to explore Jupiter's moon Europa"
+    },
+    {
+      "name": "CES 2025",
+      "date": "2025-01-07",
+      "endDate": "2025-01-10",
+      "type": "기술",
+      "location": "Las Vegas, USA",
+      "description": "World's largest consumer electronics and IT exhibition"
+    },
+    {
+      "name": "WWDC 2025",
+      "date": "2025-06",
+      "type": "기술",
+      "location": "Cupertino, USA",
+      "description": "Apple Developer Conference"
+    },
+    {
+      "name": "Venice Biennale",
+      "date": "2025-04-19",
+      "endDate": "2025-11-23",
+      "type": "문화/예술",
+      "location": "Venice, Italy",
+      "description": "World's largest contemporary art biennale"
+    },
+    {
+      "name": "Paris Opera Season",
+      "date": "2025-09",
+      "endDate": "2025-07",
+      "type": "문화/예술",
+      "location": "Paris, France",
+      "description": "Paris Opera House regular performance season"
+    },
+    {
+      "name": "COP30 Climate Change Conference",
+      "date": "2025-11-10",
+      "endDate": "2025-11-21",
+      "type": "환경",
+      "location": "Belém, Brazil",
+      "description": "UN Climate Change Conference"
+    },
+    {
+      "name": "2025 French Open",
+      "date": "2025-05-25",
+      "endDate": "2025-06-08",
+      "type": "스포츠",
+      "location": "Paris, France",
+      "description": "French Open Tennis Championship"
+    },
+    {
+      "name": "2025 Wimbledon",
+      "date": "2025-06-30",
+      "endDate": "2025-07-13",
+      "type": "스포츠",
+      "location": "London, UK",
+      "description": "Wimbledon Tennis Championship"
+    },
+    {
+      "name": "2025 US Open",
+      "date": "2025-08-25",
+      "endDate": "2025-09-07",
+      "type": "스포츠",
+      "location": "New York, USA",
+      "description": "US Open Tennis Championship"
+    },
+    {
+      "name": "2025 F1 Season",
+      "date": "2025-03",
+      "endDate": "2025-11",
+      "type": "스포츠",
+      "location": "Worldwide",
+      "description": "Formula One World Championship"
+    },
+    {
+      "name": "2025 US Presidential Inauguration",
+      "date": "2025-01-20",
+      "type": "정치/경제",
+      "location": "Washington D.C., USA",
+      "description": "US Presidential Inauguration"
+    },
+    {
+      "name": "2025 UK General Election",
+      "date": "2025",
+      "type": "정치/경제",
+      "location": "United Kingdom",
+      "description": "UK General Election"
+    },
+    {
+      "name": "2025 European Parliament Election",
+      "date": "2025-06",
+      "type": "정치/경제",
+      "location": "European Union",
+      "description": "European Parliament Election"
+    },
+    {
+      "name": "2025 Academy Awards",
+      "date": "2025-03-02",
+      "type": "문화/예술",
+      "location": "Los Angeles, USA",
+      "description": "Academy Awards Ceremony"
+    },
+    {
+      "name": "2025 Grammy Awards",
+      "date": "2025-02-02",
+      "type": "문화/예술",
+      "location": "Los Angeles, USA",
+      "description": "Grammy Music Awards"
+    },
+    {
+      "name": "2025 Golden Globe Awards",
+      "date": "2025-01-05",
+      "type": "문화/예술",
+      "location": "Los Angeles, USA",
+      "description": "Golden Globe Film & Television Awards"
+    },
+    {
+      "name": "2025 Met Gala",
+      "date": "2025-05-05",
+      "type": "문화/예술",
+      "location": "New York, USA",
+      "description": "Metropolitan Museum of Art Charity Gala"
+    },
+    {
+      "name": "2025 Coachella Music Festival",
+      "date": "2025-04-11",
+      "endDate": "2025-04-13",
+      "type": "문화/예술",
+      "location": "California, USA",
+      "description": "World's largest music festival"
+    },
+    {
+      "name": "2025 Glastonbury Music Festival",
+      "date": "2025-06-26",
+      "endDate": "2025-07-06",
+      "type": "문화/예술",
+      "location": "Glastonbury, UK",
+      "description": "UK's largest music festival"
+    },
+    {
+      "name": "2025 Google I/O Developer Conference",
+      "date": "2025-05",
+      "type": "기술",
+      "location": "California, USA",
+      "description": "Google Developer Conference"
+    },
+    {
+      "name": "2025 Microsoft Build Conference",
+      "date": "2025-05",
+      "type": "기술",
+      "location": "Seattle, USA",
+      "description": "Microsoft Developer Conference"
+    },
+    {
+      "name": "2025 E3 Game Show",
+      "date": "2025-06",
+      "type": "기술",
+      "location": "Los Angeles, USA",
+      "description": "World's largest game exhibition"
+    },
+    {
+      "name": "2025 China Space Station Completion",
+      "date": "2025",
+      "type": "우주/과학",
+      "location": "Earth Orbit",
+      "description": "China's Tiangong Space Station completion"
+    },
+    {
+      "name": "2025 Vega-C Rocket Launch",
+      "date": "2025",
+      "type": "우주/과학",
+      "location": "Space",
+      "description": "ESA's next-generation rocket launch"
+    }
+  ],
+  "2026": [
+    {
+      "name": "2026 FIFA World Cup",
+      "date": "2026-06-11",
+      "endDate": "2026-07-19",
+      "type": "스포츠",
+      "location": "USA, Canada, Mexico",
+      "description": "World's largest football tournament"
+    },
+    {
+      "name": "2026 Winter Olympics",
+      "date": "2026-02-06",
+      "endDate": "2026-02-22",
+      "type": "스포츠",
+      "location": "Milan-Cortina d'Ampezzo, Italy",
+      "description": "World's largest winter multi-sport event"
+    },
+    {
+      "name": "2026 Winter Paralympics",
+      "date": "2026-03-06",
+      "endDate": "2026-03-15",
+      "type": "스포츠",
+      "location": "Milan-Cortina d'Ampezzo, Italy",
+      "description": "Winter Paralympic Games"
+    },
+    {
+      "name": "Darwin+ Mission Launch",
+      "date": "2026",
+      "type": "우주/과학",
+      "location": "Earth Orbit",
+      "description": "ESA's exoplanet life detection mission"
+    },
+    {
+      "name": "Enceladus Orbiter Launch",
+      "date": "2026-10",
+      "type": "우주/과학",
+      "location": "Saturn's moon Enceladus",
+      "description": "NASA's mission to search for life on Saturn's moon Enceladus"
+    },
+    {
+      "name": "Webb Space Telescope Extended Mission",
+      "date": "2026",
+      "type": "우주/과학",
+      "location": "Space",
+      "description": "James Webb Space Telescope additional observations and extended mission"
+    },
+    {
+      "name": "G7 Summit",
+      "date": "2026-06",
+      "type": "정치/경제",
+      "location": "USA",
+      "description": "Group of Seven Summit"
+    },
+    {
+      "name": "G20 Summit",
+      "date": "2026-11",
+      "type": "정치/경제",
+      "location": "India",
+      "description": "Group of Twenty Summit"
+    },
+    {
+      "name": "Davos Forum",
+      "date": "2026-01-20",
+      "endDate": "2026-01-23",
+      "type": "정치/경제",
+      "location": "Davos, Switzerland",
+      "description": "World Economic Forum Annual Meeting"
+    },
+    {
+      "name": "Cannes Film Festival",
+      "date": "2026-05-13",
+      "endDate": "2026-05-24",
+      "type": "문화/예술",
+      "location": "Cannes, France",
+      "description": "One of the world's three major film festivals"
+    },
+    {
+      "name": "Berlin Film Festival",
+      "date": "2026-02-12",
+      "endDate": "2026-02-22",
+      "type": "문화/예술",
+      "location": "Berlin, Germany",
+      "description": "One of the world's three major film festivals"
+    },
+    {
+      "name": "2026 FIFA World Cup Final Halftime Show",
+      "date": "2026-07-19",
+      "type": "문화/예술",
+      "location": "New Jersey, USA",
+      "description": "First halftime show at World Cup final"
+    },
+    {
+      "name": "BTS Comeback & World Tour",
+      "date": "2026-03",
+      "type": "문화/예술",
+      "location": "Worldwide",
+      "description": "K-pop group BTS new album and world tour"
+    },
+    {
+      "name": "2026 US Midterm Elections",
+      "date": "2026-11-03",
+      "type": "정치/경제",
+      "location": "USA",
+      "description": "US Midterm Elections"
+    },
+    {
+      "name": "2026 French Presidential Election",
+      "date": "2026-04",
+      "type": "정치/경제",
+      "location": "France",
+      "description": "French Presidential Election"
+    },
+    {
+      "name": "2026 Brazilian Presidential Election",
+      "date": "2026-10",
+      "type": "정치/경제",
+      "location": "Brazil",
+      "description": "Brazilian Presidential Election"
+    },
+    {
+      "name": "2026 Academy Awards",
+      "date": "2026-03-08",
+      "type": "문화/예술",
+      "location": "Los Angeles, USA",
+      "description": "Academy Awards Ceremony"
+    },
+    {
+      "name": "2026 Grammy Awards",
+      "date": "2026-02-08",
+      "type": "문화/예술",
+      "location": "Los Angeles, USA",
+      "description": "Grammy Music Awards"
+    },
+    {
+      "name": "2026 UEFA European Championship",
+      "date": "2026-06-14",
+      "endDate": "2026-07-14",
+      "type": "스포츠",
+      "location": "United Kingdom",
+      "description": "European Football Championship"
+    },
+    {
+      "name": "2026 Copa América",
+      "date": "2026-06-14",
+      "endDate": "2026-07-14",
+      "type": "스포츠",
+      "location": "USA",
+      "description": "South American Football Championship"
+    },
+    {
+      "name": "2026 Wimbledon",
+      "date": "2026-06-29",
+      "endDate": "2026-07-12",
+      "type": "스포츠",
+      "location": "London, UK",
+      "description": "Wimbledon Tennis Championship"
+    },
+    {
+      "name": "2026 US Open",
+      "date": "2026-08-31",
+      "endDate": "2026-09-13",
+      "type": "스포츠",
+      "location": "New York, USA",
+      "description": "US Open Tennis Championship"
+    },
+    {
+      "name": "2026 F1 Season",
+      "date": "2026-03",
+      "endDate": "2026-11",
+      "type": "스포츠",
+      "location": "Worldwide",
+      "description": "Formula One World Championship"
+    },
+    {
+      "name": "2026 Google I/O Developer Conference",
+      "date": "2026-05",
+      "type": "기술",
+      "location": "California, USA",
+      "description": "Google Developer Conference"
+    },
+    {
+      "name": "2026 WWDC",
+      "date": "2026-06",
+      "type": "기술",
+      "location": "Cupertino, USA",
+      "description": "Apple Developer Conference"
+    },
+    {
+      "name": "2026 CES",
+      "date": "2026-01-06",
+      "endDate": "2026-01-09",
+      "type": "기술",
+      "location": "Las Vegas, USA",
+      "description": "World's largest consumer electronics and IT exhibition"
+    },
+    {
+      "name": "2026 China Moon Landing Mission",
+      "date": "2026",
+      "type": "우주/과학",
+      "location": "Moon",
+      "description": "China's crewed moon landing mission"
+    },
+    {
+      "name": "2026 India Moon Landing Mission",
+      "date": "2026",
+      "type": "우주/과학",
+      "location": "Moon",
+      "description": "ISRO (Indian Space Research Organisation) moon landing mission"
+    }
+  ],
+  "2027": [
+    {
+      "name": "2027 AFC Asian Cup",
+      "date": "2027-07-09",
+      "endDate": "2027-08-09",
+      "type": "스포츠",
+      "location": "Saudi Arabia",
+      "description": "Asia's premier football tournament"
+    },
+    {
+      "name": "2027 Summer Universiade",
+      "date": "2027-08-11",
+      "endDate": "2027-08-22",
+      "type": "스포츠",
+      "location": "Chungcheongbuk-do, South Korea",
+      "description": "World University Games"
+    },
+    {
+      "name": "Artemis 4 Moon Base Construction Start",
+      "date": "2027",
+      "type": "우주/과학",
+      "location": "Moon",
+      "description": "NASA's moon base construction project begins"
+    },
+    {
+      "name": "Mars Sample Return Mission",
+      "date": "2027-08",
+      "type": "우주/과학",
+      "location": "Mars",
+      "description": "NASA-ESA joint Mars sample return to Earth mission"
+    },
+    {
+      "name": "Roman Space Telescope Launch",
+      "date": "2027-05",
+      "type": "우주/과학",
+      "location": "Space",
+      "description": "NASA's next-generation space telescope launch"
+    },
+    {
+      "name": "AI Safety Summit",
+      "date": "2027",
+      "type": "기술",
+      "location": "USA",
+      "description": "International AI Safety Summit"
+    },
+    {
+      "name": "Tokyo Game Show",
+      "date": "2027-09-23",
+      "endDate": "2027-09-26",
+      "type": "기술",
+      "location": "Tokyo, Japan",
+      "description": "Asia's largest game exhibition"
+    },
+    {
+      "name": "Venice Biennale",
+      "date": "2027-04-17",
+      "endDate": "2027-11-26",
+      "type": "문화/예술",
+      "location": "Venice, Italy",
+      "description": "World's largest contemporary art biennale"
+    },
+    {
+      "name": "Expo 2027",
+      "date": "2027-05-15",
+      "endDate": "2027-08-15",
+      "type": "문화/예술",
+      "location": "Belgrade, Serbia",
+      "description": "World Expo"
+    },
+    {
+      "name": "2027 Summer Olympics",
+      "date": "2027-07-23",
+      "endDate": "2027-08-08",
+      "type": "스포츠",
+      "location": "Mumbai, India",
+      "description": "World's largest summer multi-sport event"
+    },
+    {
+      "name": "2027 Summer Paralympics",
+      "date": "2027-08-24",
+      "endDate": "2027-09-05",
+      "type": "스포츠",
+      "location": "Mumbai, India",
+      "description": "Summer Paralympic Games"
+    },
+    {
+      "name": "2027 Wimbledon",
+      "date": "2027-06-28",
+      "endDate": "2027-07-11",
+      "type": "스포츠",
+      "location": "London, UK",
+      "description": "Wimbledon Tennis Championship"
+    },
+    {
+      "name": "2027 US Open",
+      "date": "2027-08-30",
+      "endDate": "2027-09-12",
+      "type": "스포츠",
+      "location": "New York, USA",
+      "description": "US Open Tennis Championship"
+    },
+    {
+      "name": "2027 F1 Season",
+      "date": "2027-03",
+      "endDate": "2027-11",
+      "type": "스포츠",
+      "location": "Worldwide",
+      "description": "Formula One World Championship"
+    },
+    {
+      "name": "2027 Academy Awards",
+      "date": "2027-03-07",
+      "type": "문화/예술",
+      "location": "Los Angeles, USA",
+      "description": "Academy Awards Ceremony"
+    },
+    {
+      "name": "2027 Grammy Awards",
+      "date": "2027-02-07",
+      "type": "문화/예술",
+      "location": "Los Angeles, USA",
+      "description": "Grammy Music Awards"
+    },
+    {
+      "name": "2027 Cannes Film Festival",
+      "date": "2027-05-12",
+      "endDate": "2027-05-23",
+      "type": "문화/예술",
+      "location": "Cannes, France",
+      "description": "One of the world's three major film festivals"
+    },
+    {
+      "name": "2027 Berlin Film Festival",
+      "date": "2027-02-11",
+      "endDate": "2027-02-21",
+      "type": "문화/예술",
+      "location": "Berlin, Germany",
+      "description": "One of the world's three major film festivals"
+    },
+    {
+      "name": "2027 Google I/O Developer Conference",
+      "date": "2027-05",
+      "type": "기술",
+      "location": "California, USA",
+      "description": "Google Developer Conference"
+    },
+    {
+      "name": "2027 WWDC",
+      "date": "2027-06",
+      "type": "기술",
+      "location": "Cupertino, USA",
+      "description": "Apple Developer Conference"
+    },
+    {
+      "name": "2027 CES",
+      "date": "2027-01-05",
+      "endDate": "2027-01-08",
+      "type": "기술",
+      "location": "Las Vegas, USA",
+      "description": "World's largest consumer electronics and IT exhibition"
+    },
+    {
+      "name": "2027 G7 Summit",
+      "date": "2027-06",
+      "type": "정치/경제",
+      "location": "Canada",
+      "description": "Group of Seven Summit"
+    },
+    {
+      "name": "2027 G20 Summit",
+      "date": "2027-11",
+      "type": "정치/경제",
+      "location": "South Africa",
+      "description": "Group of Twenty Summit"
+    },
+    {
+      "name": "2027 French Presidential Election",
+      "date": "2027-04",
+      "type": "정치/경제",
+      "location": "France",
+      "description": "French Presidential Election"
+    },
+    {
+      "name": "2027 COP31 Climate Change Conference",
+      "date": "2027-11",
+      "type": "환경",
+      "location": "Australia",
+      "description": "UN Climate Change Conference"
+    },
+    {
+      "name": "2027 China Crewed Mars Exploration",
+      "date": "2027",
+      "type": "우주/과학",
+      "location": "Mars",
+      "description": "China's planned crewed Mars exploration mission"
+    },
+    {
+      "name": "2027 Vega-E Rocket Launch",
+      "date": "2027",
+      "type": "우주/과학",
+      "location": "Space",
+      "description": "ESA's reusable rocket launch"
+    }
+  ]
+}
+

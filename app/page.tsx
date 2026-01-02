@@ -2,7 +2,14 @@
 
 import { useState, useEffect } from 'react'
 import styles from './page.module.css'
-import majorEventsData from './data/major-events.json'
+import majorEventsKoData from './data/major-events-ko.json'
+import majorEventsEnData from './data/major-events-en.json'
+import koTranslations from './data/locales/ko.json'
+import enTranslations from './data/locales/en.json'
+import holidayNamesData from './data/holiday-names.json'
+
+type Language = 'ko' | 'en'
+type Translations = typeof koTranslations
 
 interface Holiday {
   date: number
@@ -32,10 +39,37 @@ export default function Home() {
   const [holidaysByMonth, setHolidaysByMonth] = useState<HolidayByMonth[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [language, setLanguage] = useState<Language>('ko')
+
+  // 브라우저 locale 감지
+  useEffect(() => {
+    const browserLang = navigator.language || (navigator as any).userLanguage || 'ko'
+    const lang = browserLang.toLowerCase().startsWith('ko') ? 'ko' : 'en'
+    setLanguage(lang)
+  }, [])
+
+  // 번역 함수
+  const t = (key: string, params?: Record<string, string | number>): string => {
+    const translations = language === 'ko' ? koTranslations : enTranslations
+    const keys = key.split('.')
+    let value: any = translations
+    for (const k of keys) {
+      value = value?.[k]
+    }
+    if (typeof value !== 'string') return key
+    
+    // 파라미터 치환
+    if (params) {
+      return Object.entries(params).reduce((str, [paramKey, paramValue]) => {
+        return str.replace(new RegExp(`\\{${paramKey}\\}`, 'g'), String(paramValue))
+      }, value)
+    }
+    return value
+  }
 
   useEffect(() => {
     fetchYearHolidays(selectedYear)
-  }, [selectedYear])
+  }, [selectedYear, language])
 
   const fetchYearHolidays = async (year: number) => {
     setLoading(true)
@@ -56,6 +90,48 @@ export default function Home() {
           // 국경일(dateKind: '01') 또는 대체공휴일만 필터링
           const isSubstitute = holiday.name.includes('대체') || holiday.name.includes('대체공휴일')
           return holiday.dateKind === '01' || isSubstitute
+        }).map((holiday: Holiday) => {
+          // 공휴일 이름 번역
+          const holidayNames = holidayNamesData[language as 'ko' | 'en']
+          let translatedName = holidayNames[holiday.name]
+          
+          // 번역이 없으면 복합 이름 처리
+          if (!translatedName && language === 'en') {
+            // "대체공휴일(공휴일명)" 패턴 처리 (예: "대체공휴일(삼일절)")
+            const bracketMatch = holiday.name.match(/대체공휴일\(([^)]+)\)/)
+            if (bracketMatch) {
+              const baseName = bracketMatch[1]
+              const baseTranslated = holidayNames[baseName]
+              if (baseTranslated) {
+                translatedName = `${baseTranslated} (Substitute)`
+              }
+            }
+            // "공휴일명 대체공휴일" 패턴 처리 (예: "어린이날 대체공휴일")
+            else if (holiday.name.includes('대체공휴일') || holiday.name.includes('대체')) {
+              const baseName = holiday.name.replace(/\s*대체공휴일\s*/g, '').replace(/\s*대체\s*/g, '').trim()
+              const baseTranslated = holidayNames[baseName]
+              if (baseTranslated) {
+                translatedName = `${baseTranslated} (Substitute)`
+              }
+            }
+          }
+          
+          // dateKindName 번역
+          const translations = language === 'ko' ? koTranslations : enTranslations
+          let translatedDateKindName = holiday.dateKindName
+          if (holiday.dateKindName) {
+            if (holiday.dateKindName === '국경일') {
+              translatedDateKindName = translations.dateKind.national
+            } else if (holiday.dateKindName === '대체공휴일') {
+              translatedDateKindName = translations.dateKind.substitute
+            }
+          }
+          
+          return {
+            ...holiday,
+            name: translatedName || holiday.name,
+            dateKindName: translatedDateKindName || holiday.dateKindName
+          }
         })
         return {
           month: index + 1,
@@ -63,9 +139,16 @@ export default function Home() {
         }
       })
       
-      setHolidaysByMonth(grouped)
+      // 에러 체크: results 중 하나라도 error가 있으면 처리
+      const hasError = results.some((result: any) => result.error)
+      if (hasError) {
+        const firstError = results.find((result: any) => result.error)
+        setError(firstError?.error || t('common.errorMessage'))
+      } else {
+        setHolidaysByMonth(grouped)
+      }
     } catch (err) {
-      setError('공휴일 정보를 가져오는 중 오류가 발생했습니다.')
+      setError(t('common.errorMessage'))
       console.error(err)
     } finally {
       setLoading(false)
@@ -102,8 +185,7 @@ export default function Home() {
     const m = parseInt(dateStr.substring(4, 6)) - 1
     const d = parseInt(dateStr.substring(6, 8))
     const date = new Date(y, m, d)
-    const days = ['일', '월', '화', '수', '목', '금', '토']
-    return days[date.getDay()]
+    return t(`days.${date.getDay()}`)
   }
 
   const isToday = (dateNum: number): boolean => {
@@ -117,8 +199,8 @@ export default function Home() {
   }
 
   const getMonthName = (month: number): string => {
-    const months = ['1월', '2월', '3월', '4월', '5월', '6월', '7월', '8월', '9월', '10월', '11월', '12월']
-    return months[month - 1]
+    const translations = language === 'ko' ? koTranslations : enTranslations
+    return translations.months[month.toString()] || `${month}월`
   }
 
   const getTotalHolidays = (): number => {
@@ -190,8 +272,8 @@ export default function Home() {
 
   const getHolidayTypeColor = (type: string): string => {
     const colorMap: Record<string, string> = {
-      national: '#9ca3af', // 국경일 - gray light
-      substitute: '#6b7280', // 대체공휴일 - gray darker
+      national: '#2563eb', // 국경일 - 진한 파란색
+      substitute: '#dc2626', // 대체공휴일 - 진한 빨간색
       other: '#9ca3af', // 기타 - gray light
     }
     return colorMap[type] || colorMap.other
@@ -307,10 +389,11 @@ export default function Home() {
       // 현재 공휴일이 첫 번째 공휴일(주말 제외)인 경우에만 표시
       const firstHolidayDateNum = dateToNum(firstHolidayDate)
       if (firstHolidayDateNum === currentDateNum) {
-        const weekendText = hasWeekend ? '주말 포함 ' : ''
         return {
           days: diffDays,
-          description: `${weekendText}${diffDays}일 연휴`
+          description: hasWeekend 
+            ? t('holiday.holidayPeriod', { days: diffDays })
+            : t('holiday.holidayPeriodShort', { days: diffDays })
         }
       }
     }
@@ -321,6 +404,7 @@ export default function Home() {
   // 주요 이벤트 데이터 가져오기 및 날짜 순 정렬
   const getMajorEvents = (): MajorEvent[] => {
     const yearStr = selectedYear.toString()
+    const majorEventsData = language === 'ko' ? majorEventsKoData : majorEventsEnData
     const events = (majorEventsData as Record<string, MajorEvent[]>)[yearStr] || []
     
     // 날짜 기준으로 정렬
@@ -359,17 +443,32 @@ export default function Home() {
   return (
     <>
       <a href="#main-content" className={styles.skipLink}>
-        본문으로 건너뛰기
+        {t('common.skipToContent')}
       </a>
-      <main id="main-content" className={styles.main} role="main" aria-label="대한민국 공휴일과 전세계 주요 이벤트">
+      <main id="main-content" className={styles.main} role="main" aria-label={t('hero.title')}>
         {/* Key Message - Hero Section */}
         <section className={styles.heroSection}>
+          <div className={styles.languageSwitcher}>
+            <button
+              onClick={() => setLanguage('ko')}
+              className={`${styles.langButton} ${language === 'ko' ? styles.langButtonActive : ''}`}
+              aria-label="한국어로 전환"
+              aria-pressed={language === 'ko'}
+            >
+              KO
+            </button>
+            <button
+              onClick={() => setLanguage('en')}
+              className={`${styles.langButton} ${language === 'en' ? styles.langButtonActive : ''}`}
+              aria-label="Switch to English"
+              aria-pressed={language === 'en'}
+            >
+              EN
+            </button>
+          </div>
           <div className={styles.heroContent}>
-            <h1 className={styles.heroTitle}>한국의 공휴일과 전 세계 주요 이벤트</h1>
-            <p className={styles.heroSubtitle}>
-              언제 쉬는지 궁금하셨나요?<br />
-              연휴 정보부터 글로벌 이벤트까지 한 번에 확인하세요
-            </p>
+            <h1 className={styles.heroTitle}>{t('hero.title')}</h1>
+            <p className={styles.heroSubtitle} dangerouslySetInnerHTML={{ __html: t('hero.subtitle') }} />
           </div>
         </section>
 
@@ -377,14 +476,14 @@ export default function Home() {
           {/* Calendar Section */}
           <section className={styles.calendarSection} id="calendar">
             <div className={styles.sectionHeader}>
-              <h2 className={styles.sectionTitle}>{selectedYear}년 공휴일</h2>
+              <h2 className={styles.sectionTitle}>{t('calendar.title', { year: selectedYear })}</h2>
               <p className={styles.sectionDescription}>
-                올해 언제 쉴 수 있는지 확인해보세요
+                {t('calendar.description')}
               </p>
             </div>
         
-            <nav className={styles.controls} aria-label="년도 선택">
-          <div className={styles.yearTabs} role="tablist" aria-label="년도 선택 탭">
+            <nav className={styles.controls} aria-label={t('calendar.yearSelection')}>
+          <div className={styles.yearTabs} role="tablist" aria-label={t('calendar.yearSelectionTabs')}>
             {yearList.map((year) => (
               <button
                 key={year}
@@ -397,8 +496,8 @@ export default function Home() {
                 }}
                 className={`${styles.yearTab} ${selectedYear === year ? styles.yearTabActive : ''}`}
                 role="tab"
-                aria-selected={selectedYear === year}
-                aria-label={`${year}년 선택`}
+                aria-selected={selectedYear === year ? true : false}
+                aria-label={t('calendar.selectYear', { year })}
                 tabIndex={selectedYear === year ? 0 : -1}
               >
                 {year}
@@ -407,26 +506,26 @@ export default function Home() {
           </div>
           {!loading && !error && (
             <div className={styles.yearSummary} aria-live="polite" aria-atomic="true">
-              올해 총 {getTotalHolidays()}일의 공휴일이 있어요
+              {t('calendar.totalHolidays', { count: getTotalHolidays() })}
               <br />
               <span className={styles.totalDaysOff}>
-                (주말 포함 총 {getTotalDaysOff()}일의 휴일)
+                {t('calendar.totalDaysOff', { count: getTotalDaysOff() })}
               </span>
             </div>
           )}
         </nav>
 
         {loading && (
-          <div className={styles.loading} role="status" aria-live="polite" aria-label="로딩 중">
-            <span aria-hidden="true">로딩 중...</span>
+          <div className={styles.loading} role="status" aria-live="polite" aria-label={t('common.loading')}>
+            <span aria-hidden="true">{t('common.loading')}</span>
           </div>
         )}
 
         {error && (
           <div className={styles.error} role="alert" aria-live="assertive">
-            <strong>오류:</strong> {error}
+            <strong>{t('common.error')}:</strong> {error}
             <br />
-            <small>공공데이터포털에서 API 키를 발급받아 환경변수에 설정해주세요.</small>
+            <small>{t('common.errorApiKey')}</small>
           </div>
         )}
 
@@ -437,30 +536,30 @@ export default function Home() {
                   <div className={styles.legendItem}>
                     <span 
                       className={styles.legendColor} 
-                      style={{ backgroundColor: '#60a5fa' }}
+                      style={{ backgroundColor: '#2563eb' }}
                       aria-hidden="true"
                     ></span>
-                    <span className={styles.legendLabel} style={{ color: '#60a5fa' }}>국경일</span>
+                    <span className={styles.legendLabel} style={{ color: '#2563eb' }}>{t('legend.national')}</span>
                   </div>
                   <div className={styles.legendItem}>
                     <span 
                       className={styles.legendColor} 
-                      style={{ backgroundColor: '#f87171' }}
+                      style={{ backgroundColor: '#dc2626' }}
                       aria-hidden="true"
                     ></span>
-                    <span className={styles.legendLabel} style={{ color: '#f87171' }}>대체공휴일</span>
+                    <span className={styles.legendLabel} style={{ color: '#dc2626' }}>{t('legend.substitute')}</span>
                   </div>
                 </div>
 
-                <div className={styles.yearHolidayList} aria-label={`${selectedYear}년 공휴일 목록`}>
+                <div className={styles.yearHolidayList} aria-label={t('calendar.title', { year: selectedYear })}>
             {holidaysByMonth.map((monthData) => (
               <article key={monthData.month} className={styles.monthSection}>
                 <h2 className={styles.monthHeader}>
-                  {getMonthName(monthData.month)} <span className={styles.monthCount}>({monthData.holidays.length}개)</span>
+                  {getMonthName(monthData.month)} <span className={styles.monthCount}>({monthData.holidays.length}{language === 'ko' ? '개' : ''})</span>
                 </h2>
                 {monthData.holidays.length === 0 ? (
                   <p className={styles.emptyMonth} aria-live="polite">
-                    이번 달에는 공휴일이 없어요
+                    {t('holiday.empty')}
                   </p>
                 ) : (
                   <ul className={styles.monthHolidayList} role="list">
@@ -504,18 +603,18 @@ export default function Home() {
                             <span 
                               className={styles.dateKindBadge}
                               style={{
-                                backgroundColor: holidayType === 'national' ? '#dbeafe' : '#fee2e2',
-                                color: holidayType === 'national' ? '#1e40af' : '#991b1b',
-                                borderColor: holidayType === 'national' ? '#93c5fd' : '#fca5a5',
+                                backgroundColor: holidayType === 'national' ? '#bfdbfe' : '#fecaca',
+                                color: holidayType === 'national' ? '#1e3a8a' : '#991b1b',
+                                borderColor: holidayType === 'national' ? '#3b82f6' : '#ef4444',
                               }}
-                              aria-label={`${holiday.dateKindName} 공휴일`}
+                              aria-label={`${holiday.dateKindName} ${language === 'ko' ? '공휴일' : 'holiday'}`}
                             >
                               {holiday.dateKindName}
                             </span>
                           )}
                         </div>
                         {isTodayHoliday && (
-                          <span className={styles.todayBadge} aria-label="오늘">오늘</span>
+                          <span className={styles.todayBadge} aria-label={t('holiday.today')}>{t('holiday.today')}</span>
                         )}
                       </li>
                       )
@@ -533,22 +632,19 @@ export default function Home() {
           {!loading && !error && majorEvents.length > 0 && (
             <section className={styles.keyMessageSection}>
               <div className={styles.keyMessageContent}>
-                <h2 className={styles.keyMessageTitle}>이번 해, 전 세계에서 일어나는 일들</h2>
-                <p className={styles.keyMessageText}>
-                  {selectedYear}년, 놓치면 안 될 스포츠, 과학, 기술, 문화 이벤트를<br />
-                  미리 확인하고 일정을 계획해보세요
-                </p>
+                <h2 className={styles.keyMessageTitle}>{t('keyMessage.title')}</h2>
+                <p className={styles.keyMessageText} dangerouslySetInnerHTML={{ __html: t('keyMessage.text', { year: selectedYear }) }} />
               </div>
             </section>
           )}
 
           {/* Event List Section */}
           {!loading && !error && majorEvents.length > 0 && (
-            <section className={styles.eventsSection} id="events" aria-label={`${selectedYear}년 주요 이벤트`}>
+            <section className={styles.eventsSection} id="events" aria-label={t('events.title', { year: selectedYear })}>
               <div className={styles.sectionHeader}>
-                <h2 className={styles.sectionTitle}>{selectedYear}년 주요 이벤트</h2>
+                <h2 className={styles.sectionTitle}>{t('events.title', { year: selectedYear })}</h2>
                 <p className={styles.sectionDescription}>
-                  월별로 정리된 전 세계 주요 행사들
+                  {t('events.description')}
                 </p>
               </div>
               <div className={styles.eventsList}>
@@ -556,7 +652,7 @@ export default function Home() {
                 <article key={index} className={styles.eventItem} data-type={event.type}>
                   <div className={styles.eventHeader}>
                     <h3 className={styles.eventName}>{event.name}</h3>
-                    <span className={styles.eventType} data-type={event.type}>{event.type}</span>
+                    <span className={styles.eventType} data-type={event.type}>{t(`eventTypes.${event.type}`) || event.type}</span>
                   </div>
                   <div className={styles.eventDetails}>
                     <time dateTime={event.date} className={styles.eventDate}>
@@ -572,9 +668,9 @@ export default function Home() {
           )}
 
           <footer className={styles.footer}>
-            <p>공공데이터포털 한국천문연구원_특일정보 API 활용</p>
+            <p>{t('footer.apiSource')}</p>
             <div className={styles.copyright}>
-            <p>© {new Date().getFullYear()} hellomrma. All rights reserved.</p>
+            <p>{t('footer.copyright', { year: new Date().getFullYear() })}</p>
             <nav className={styles.footerLinks} aria-label="소셜 링크">
               <a 
                 href="mailto:hellomrma@gmail.com" 

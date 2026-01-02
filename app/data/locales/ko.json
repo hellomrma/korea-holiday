@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "title": "한국의 공휴일과 전 세계 주요 이벤트",
+    "subtitle": "언제 쉬는지 궁금하셨나요?<br />연휴 정보부터 글로벌 이벤트까지 한 번에 확인하세요"
+  },
+  "calendar": {
+    "title": "{year}년 공휴일",
+    "description": "올해 언제 쉴 수 있는지 확인해보세요",
+    "yearSelection": "년도 선택",
+    "yearSelectionTabs": "년도 선택 탭",
+    "selectYear": "{year}년 선택",
+    "totalHolidays": "올해 총 {count}일의 공휴일이 있어요",
+    "totalDaysOff": "(주말 포함 총 {count}일의 휴일)"
+  },
+  "legend": {
+    "national": "국경일",
+    "substitute": "대체공휴일"
+  },
+  "months": {
+    "1": "1월",
+    "2": "2월",
+    "3": "3월",
+    "4": "4월",
+    "5": "5월",
+    "6": "6월",
+    "7": "7월",
+    "8": "8월",
+    "9": "9월",
+    "10": "10월",
+    "11": "11월",
+    "12": "12월"
+  },
+  "days": {
+    "0": "일",
+    "1": "월",
+    "2": "화",
+    "3": "수",
+    "4": "목",
+    "5": "금",
+    "6": "토"
+  },
+  "holiday": {
+    "empty": "이번 달에는 공휴일이 없어요",
+    "today": "오늘",
+    "holidayPeriod": "주말 포함 {days}일 연휴",
+    "holidayPeriodShort": "{days}일 연휴"
+  },
+  "dateKind": {
+    "national": "국경일",
+    "substitute": "대체공휴일"
+  },
+  "keyMessage": {
+    "title": "이번 해, 전 세계에서 일어나는 일들",
+    "text": "{year}년, 놓치면 안 될 스포츠, 과학, 기술, 문화 이벤트를<br />미리 확인하고 일정을 계획해보세요"
+  },
+  "events": {
+    "title": "{year}년 주요 이벤트",
+    "description": "월별로 정리된 전 세계 주요 행사들"
+  },
+  "eventTypes": {
+    "스포츠": "스포츠",
+    "우주/과학": "우주/과학",
+    "기술": "기술",
+    "문화/예술": "문화/예술",
+    "환경": "환경",
+    "정치/경제": "정치/경제"
+  },
+  "common": {
+    "loading": "로딩 중...",
+    "error": "오류",
+    "errorMessage": "공휴일 정보를 가져오는 중 오류가 발생했습니다.",
+    "errorApiKey": "공공데이터포털에서 API 키를 발급받아 환경변수에 설정해주세요.",
+    "skipToContent": "본문으로 건너뛰기"
+  },
+  "footer": {
+    "apiSource": "공공데이터포털 한국천문연구원_특일정보 API 활용",
+    "copyright": "© {year} hellomrma. All rights reserved.",
+    "email": "hellomrma@gmail.com",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "twitter": "@hellomrma"
+  }
+}
+

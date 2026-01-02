@@ -1,0 +1,84 @@
+{
+  "hero": {
+    "title": "South Korea Holidays & Global Major Events",
+    "subtitle": "Wondering when you can take a break?<br />Check holiday information and global events all in one place"
+  },
+  "calendar": {
+    "title": "{year} Holidays",
+    "description": "Check when you can take time off this year",
+    "yearSelection": "Year Selection",
+    "yearSelectionTabs": "Year Selection Tabs",
+    "selectYear": "Select {year}",
+    "totalHolidays": "There are {count} public holidays this year",
+    "totalDaysOff": "(Total {count} days off including weekends)"
+  },
+  "legend": {
+    "national": "National Holiday",
+    "substitute": "Substitute Holiday"
+  },
+  "months": {
+    "1": "January",
+    "2": "February",
+    "3": "March",
+    "4": "April",
+    "5": "May",
+    "6": "June",
+    "7": "July",
+    "8": "August",
+    "9": "September",
+    "10": "October",
+    "11": "November",
+    "12": "December"
+  },
+  "days": {
+    "0": "Sun",
+    "1": "Mon",
+    "2": "Tue",
+    "3": "Wed",
+    "4": "Thu",
+    "5": "Fri",
+    "6": "Sat"
+  },
+  "holiday": {
+    "empty": "No holidays this month",
+    "today": "Today",
+    "holidayPeriod": "{days}-day holiday including weekends",
+    "holidayPeriodShort": "{days}-day holiday"
+  },
+  "dateKind": {
+    "national": "National Holiday",
+    "substitute": "Substitute Holiday"
+  },
+  "keyMessage": {
+    "title": "What's Happening Around the World This Year",
+    "text": "Don't miss out on sports, science, technology, and cultural events in {year}<br />Plan your schedule in advance"
+  },
+  "events": {
+    "title": "{year} Major Events",
+    "description": "Major global events sorted by month"
+  },
+  "eventTypes": {
+    "스포츠": "Sports",
+    "우주/과학": "Space/Science",
+    "기술": "Technology",
+    "문화/예술": "Culture/Arts",
+    "환경": "Environment",
+    "정치/경제": "Politics/Economy"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "errorMessage": "An error occurred while fetching holiday information.",
+    "errorApiKey": "Please obtain an API key from the Public Data Portal and set it in environment variables.",
+    "skipToContent": "Skip to main content"
+  },
+  "footer": {
+    "apiSource": "Using Public Data Portal Korea Astronomy and Space Science Institute Special Day Information API",
+    "copyright": "© {year} hellomrma. All rights reserved.",
+    "email": "hellomrma@gmail.com",
+    "github": "GitHub",
+    "linkedin": "LinkedIn",
+    "twitter": "@hellomrma"
+  }
+}
+

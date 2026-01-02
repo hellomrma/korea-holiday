@@ -1,0 +1,628 @@
+{
+  "2025": [
+    {
+      "name": "2025 대구세계육상선수권대회",
+      "date": "2025-08-23",
+      "endDate": "2025-08-31",
+      "type": "스포츠",
+      "location": "대한민국 대구",
+      "description": "세계 육상 최고 권위 대회"
+    },
+    {
+      "name": "2025 하계 유니버시아드",
+      "date": "2025-07-11",
+      "endDate": "2025-07-22",
+      "type": "스포츠",
+      "location": "독일 라인-루르",
+      "description": "세계 대학생 종합경기대회"
+    },
+    {
+      "name": "2025 아시아컵",
+      "date": "2025-01-04",
+      "endDate": "2025-02-01",
+      "type": "스포츠",
+      "location": "카타르",
+      "description": "아시아 최고 축구 대회"
+    },
+    {
+      "name": "Artemis 3 달 착륙 미션",
+      "date": "2025-09",
+      "type": "우주/과학",
+      "location": "달",
+      "description": "NASA의 아르테미스 프로그램 3단계, 1972년 이후 첫 달 착륙"
+    },
+    {
+      "name": "유로파 클리퍼 발사",
+      "date": "2025-10",
+      "type": "우주/과학",
+      "location": "목성 위성 유로파",
+      "description": "NASA의 목성 위성 유로파 탐사 미션"
+    },
+    {
+      "name": "CES 2025",
+      "date": "2025-01-07",
+      "endDate": "2025-01-10",
+      "type": "기술",
+      "location": "미국 라스베이거스",
+      "description": "세계 최대 가전·IT 전시회"
+    },
+    {
+      "name": "WWDC 2025",
+      "date": "2025-06",
+      "type": "기술",
+      "location": "미국 쿠퍼티노",
+      "description": "Apple 개발자 컨퍼런스"
+    },
+    {
+      "name": "베네치아 비엔날레",
+      "date": "2025-04-19",
+      "endDate": "2025-11-23",
+      "type": "문화/예술",
+      "location": "이탈리아 베네치아",
+      "description": "세계 최대 규모의 현대 미술 비엔날레"
+    },
+    {
+      "name": "파리 오페라 시즌",
+      "date": "2025-09",
+      "endDate": "2025-07",
+      "type": "문화/예술",
+      "location": "프랑스 파리",
+      "description": "파리 오페라 하우스 정기 공연 시즌"
+    },
+    {
+      "name": "COP30 기후변화협약 당사국총회",
+      "date": "2025-11-10",
+      "endDate": "2025-11-21",
+      "type": "환경",
+      "location": "브라질 벨렘",
+      "description": "유엔 기후변화협약 당사국 총회"
+    },
+    {
+      "name": "2025 파리 오픈",
+      "date": "2025-05-25",
+      "endDate": "2025-06-08",
+      "type": "스포츠",
+      "location": "프랑스 파리",
+      "description": "프랑스 오픈 테니스 대회"
+    },
+    {
+      "name": "2025 윔블던",
+      "date": "2025-06-30",
+      "endDate": "2025-07-13",
+      "type": "스포츠",
+      "location": "영국 런던",
+      "description": "윔블던 테니스 챔피언십"
+    },
+    {
+      "name": "2025 US 오픈",
+      "date": "2025-08-25",
+      "endDate": "2025-09-07",
+      "type": "스포츠",
+      "location": "미국 뉴욕",
+      "description": "US 오픈 테니스 대회"
+    },
+    {
+      "name": "2025 F1 시즌",
+      "date": "2025-03",
+      "endDate": "2025-11",
+      "type": "스포츠",
+      "location": "전 세계",
+      "description": "포뮬러 원 월드 챔피언십"
+    },
+    {
+      "name": "2025 미국 대통령 취임식",
+      "date": "2025-01-20",
+      "type": "정치/경제",
+      "location": "미국 워싱턴 D.C.",
+      "description": "미국 대통령 취임식"
+    },
+    {
+      "name": "2025 영국 총선",
+      "date": "2025",
+      "type": "정치/경제",
+      "location": "영국",
+      "description": "영국 총선거"
+    },
+    {
+      "name": "2025 유럽의회 선거",
+      "date": "2025-06",
+      "type": "정치/경제",
+      "location": "유럽연합",
+      "description": "유럽의회 선거"
+    },
+    {
+      "name": "2025 오스카 시상식",
+      "date": "2025-03-02",
+      "type": "문화/예술",
+      "location": "미국 로스앤젤레스",
+      "description": "아카데미 시상식"
+    },
+    {
+      "name": "2025 그래미 어워드",
+      "date": "2025-02-02",
+      "type": "문화/예술",
+      "location": "미국 로스앤젤레스",
+      "description": "그래미 음악 시상식"
+    },
+    {
+      "name": "2025 골든글로브 시상식",
+      "date": "2025-01-05",
+      "type": "문화/예술",
+      "location": "미국 로스앤젤레스",
+      "description": "골든글로브 영화·텔레비전 시상식"
+    },
+    {
+      "name": "2025 메트 갈라",
+      "date": "2025-05-05",
+      "type": "문화/예술",
+      "location": "미국 뉴욕",
+      "description": "메트로폴리탄 미술관 자선 갈라"
+    },
+    {
+      "name": "2025 코체라 뮤직 페스티벌",
+      "date": "2025-04-11",
+      "endDate": "2025-04-13",
+      "type": "문화/예술",
+      "location": "미국 캘리포니아",
+      "description": "세계 최대 음악 페스티벌"
+    },
+    {
+      "name": "2025 글로스터셔 음악 페스티벌",
+      "date": "2025-06-26",
+      "endDate": "2025-07-06",
+      "type": "문화/예술",
+      "location": "영국 글로스터셔",
+      "description": "영국 최대 음악 페스티벌"
+    },
+    {
+      "name": "2025 I/O 개발자 컨퍼런스",
+      "date": "2025-05",
+      "type": "기술",
+      "location": "미국 캘리포니아",
+      "description": "Google 개발자 컨퍼런스"
+    },
+    {
+      "name": "2025 빌드 컨퍼런스",
+      "date": "2025-05",
+      "type": "기술",
+      "location": "미국 시애틀",
+      "description": "Microsoft 개발자 컨퍼런스"
+    },
+    {
+      "name": "2025 E3 게임쇼",
+      "date": "2025-06",
+      "type": "기술",
+      "location": "미국 로스앤젤레스",
+      "description": "세계 최대 게임 전시회"
+    },
+    {
+      "name": "2025 중국 우주정거장 완성",
+      "date": "2025",
+      "type": "우주/과학",
+      "location": "지구 궤도",
+      "description": "중국 톈궁 우주정거장 완성"
+    },
+    {
+      "name": "2025 베가-C 로켓 발사",
+      "date": "2025",
+      "type": "우주/과학",
+      "location": "우주",
+      "description": "ESA의 차세대 로켓 발사"
+    }
+  ],
+  "2026": [
+    {
+      "name": "2026 FIFA 월드컵",
+      "date": "2026-06-11",
+      "endDate": "2026-07-19",
+      "type": "스포츠",
+      "location": "미국, 캐나다, 멕시코",
+      "description": "세계 최대 축구 대회"
+    },
+    {
+      "name": "2026 동계 올림픽",
+      "date": "2026-02-06",
+      "endDate": "2026-02-22",
+      "type": "스포츠",
+      "location": "이탈리아 밀라노-코르티나담페초",
+      "description": "세계 최대 동계 종합경기대회"
+    },
+    {
+      "name": "2026 동계 패럴림픽",
+      "date": "2026-03-06",
+      "endDate": "2026-03-15",
+      "type": "스포츠",
+      "location": "이탈리아 밀라노-코르티나담페초",
+      "description": "장애인 동계 종합경기대회"
+    },
+    {
+      "name": "다윈+ 미션 발사",
+      "date": "2026",
+      "type": "우주/과학",
+      "location": "지구 궤도",
+      "description": "ESA의 지구 외 생명체 탐사 미션"
+    },
+    {
+      "name": "엔셀라두스 오비터 발사",
+      "date": "2026-10",
+      "type": "우주/과학",
+      "location": "토성 위성 엔셀라두스",
+      "description": "NASA의 토성 위성 엔셀라두스 생명체 탐사 미션"
+    },
+    {
+      "name": "웹 우주망원경 확장 미션",
+      "date": "2026",
+      "type": "우주/과학",
+      "location": "우주",
+      "description": "제임스 웹 우주망원경 추가 관측 및 확장 미션"
+    },
+    {
+      "name": "G7 정상회의",
+      "date": "2026-06",
+      "type": "정치/경제",
+      "location": "미국",
+      "description": "주요 7개국 정상회의"
+    },
+    {
+      "name": "G20 정상회의",
+      "date": "2026-11",
+      "type": "정치/경제",
+      "location": "인도",
+      "description": "20개국 정상회의"
+    },
+    {
+      "name": "다보스 포럼",
+      "date": "2026-01-20",
+      "endDate": "2026-01-23",
+      "type": "정치/경제",
+      "location": "스위스 다보스",
+      "description": "세계경제포럼 연차총회"
+    },
+    {
+      "name": "칸 영화제",
+      "date": "2026-05-13",
+      "endDate": "2026-05-24",
+      "type": "문화/예술",
+      "location": "프랑스 칸",
+      "description": "세계 3대 영화제 중 하나"
+    },
+    {
+      "name": "베를린 영화제",
+      "date": "2026-02-12",
+      "endDate": "2026-02-22",
+      "type": "문화/예술",
+      "location": "독일 베를린",
+      "description": "세계 3대 영화제 중 하나"
+    },
+    {
+      "name": "2026 FIFA 월드컵 결승전 하프타임 쇼",
+      "date": "2026-07-19",
+      "type": "문화/예술",
+      "location": "미국 뉴저지",
+      "description": "월드컵 결승전 최초 하프타임 쇼"
+    },
+    {
+      "name": "BTS 컴백 및 월드 투어",
+      "date": "2026-03",
+      "type": "문화/예술",
+      "location": "전 세계",
+      "description": "K-팝 그룹 BTS 새 앨범 및 월드 투어"
+    },
+    {
+      "name": "2026 미국 중간선거",
+      "date": "2026-11-03",
+      "type": "정치/경제",
+      "location": "미국",
+      "description": "미국 중간선거"
+    },
+    {
+      "name": "2026 프랑스 대통령 선거",
+      "date": "2026-04",
+      "type": "정치/경제",
+      "location": "프랑스",
+      "description": "프랑스 대통령 선거"
+    },
+    {
+      "name": "2026 브라질 대통령 선거",
+      "date": "2026-10",
+      "type": "정치/경제",
+      "location": "브라질",
+      "description": "브라질 대통령 선거"
+    },
+    {
+      "name": "2026 오스카 시상식",
+      "date": "2026-03-08",
+      "type": "문화/예술",
+      "location": "미국 로스앤젤레스",
+      "description": "아카데미 시상식"
+    },
+    {
+      "name": "2026 그래미 어워드",
+      "date": "2026-02-08",
+      "type": "문화/예술",
+      "location": "미국 로스앤젤레스",
+      "description": "그래미 음악 시상식"
+    },
+    {
+      "name": "2026 UEFA 유로",
+      "date": "2026-06-14",
+      "endDate": "2026-07-14",
+      "type": "스포츠",
+      "location": "영국",
+      "description": "유럽 축구 선수권 대회"
+    },
+    {
+      "name": "2026 코파 아메리카",
+      "date": "2026-06-14",
+      "endDate": "2026-07-14",
+      "type": "스포츠",
+      "location": "미국",
+      "description": "남미 축구 선수권 대회"
+    },
+    {
+      "name": "2026 윔블던",
+      "date": "2026-06-29",
+      "endDate": "2026-07-12",
+      "type": "스포츠",
+      "location": "영국 런던",
+      "description": "윔블던 테니스 챔피언십"
+    },
+    {
+      "name": "2026 US 오픈",
+      "date": "2026-08-31",
+      "endDate": "2026-09-13",
+      "type": "스포츠",
+      "location": "미국 뉴욕",
+      "description": "US 오픈 테니스 대회"
+    },
+    {
+      "name": "2026 F1 시즌",
+      "date": "2026-03",
+      "endDate": "2026-11",
+      "type": "스포츠",
+      "location": "전 세계",
+      "description": "포뮬러 원 월드 챔피언십"
+    },
+    {
+      "name": "2026 I/O 개발자 컨퍼런스",
+      "date": "2026-05",
+      "type": "기술",
+      "location": "미국 캘리포니아",
+      "description": "Google 개발자 컨퍼런스"
+    },
+    {
+      "name": "2026 WWDC",
+      "date": "2026-06",
+      "type": "기술",
+      "location": "미국 쿠퍼티노",
+      "description": "Apple 개발자 컨퍼런스"
+    },
+    {
+      "name": "2026 CES",
+      "date": "2026-01-06",
+      "endDate": "2026-01-09",
+      "type": "기술",
+      "location": "미국 라스베이거스",
+      "description": "세계 최대 가전·IT 전시회"
+    },
+    {
+      "name": "2026 중국 달 착륙 미션",
+      "date": "2026",
+      "type": "우주/과학",
+      "location": "달",
+      "description": "중국의 유인 달 착륙 미션"
+    },
+    {
+      "name": "2026 인도 달 착륙 미션",
+      "date": "2026",
+      "type": "우주/과학",
+      "location": "달",
+      "description": "인도 우주연구기구(ISRO) 달 착륙 미션"
+    }
+  ],
+  "2027": [
+    {
+      "name": "2027 AFC 아시안컵",
+      "date": "2027-07-09",
+      "endDate": "2027-08-09",
+      "type": "스포츠",
+      "location": "사우디아라비아",
+      "description": "아시아 최고 축구 대회"
+    },
+    {
+      "name": "2027 하계 유니버시아드",
+      "date": "2027-08-11",
+      "endDate": "2027-08-22",
+      "type": "스포츠",
+      "location": "대한민국 충청북도",
+      "description": "세계 대학생 종합경기대회"
+    },
+    {
+      "name": "아르테미스 4 달 기지 건설 시작",
+      "date": "2027",
+      "type": "우주/과학",
+      "location": "달",
+      "description": "NASA의 달 기지 건설 프로젝트 시작"
+    },
+    {
+      "name": "화성 샘플 반환 미션",
+      "date": "2027-08",
+      "type": "우주/과학",
+      "location": "화성",
+      "description": "NASA-ESA 공동 화성 샘플 지구 반환 미션"
+    },
+    {
+      "name": "로마 우주망원경 발사",
+      "date": "2027-05",
+      "type": "우주/과학",
+      "location": "우주",
+      "description": "NASA의 차세대 우주망원경 발사"
+    },
+    {
+      "name": "AI Safety Summit",
+      "date": "2027",
+      "type": "기술",
+      "location": "미국",
+      "description": "인공지능 안전성 국제 정상회의"
+    },
+    {
+      "name": "도쿄 게임쇼",
+      "date": "2027-09-23",
+      "endDate": "2027-09-26",
+      "type": "기술",
+      "location": "일본 도쿄",
+      "description": "아시아 최대 게임 전시회"
+    },
+    {
+      "name": "베네치아 비엔날레",
+      "date": "2027-04-17",
+      "endDate": "2027-11-26",
+      "type": "문화/예술",
+      "location": "이탈리아 베네치아",
+      "description": "세계 최대 규모의 현대 미술 비엔날레"
+    },
+    {
+      "name": "엑스포 2027",
+      "date": "2027-05-15",
+      "endDate": "2027-08-15",
+      "type": "문화/예술",
+      "location": "세르비아 벨그라드",
+      "description": "세계 박람회"
+    },
+    {
+      "name": "2027 하계 올림픽",
+      "date": "2027-07-23",
+      "endDate": "2027-08-08",
+      "type": "스포츠",
+      "location": "인도 뭄바이",
+      "description": "세계 최대 하계 종합경기대회"
+    },
+    {
+      "name": "2027 하계 패럴림픽",
+      "date": "2027-08-24",
+      "endDate": "2027-09-05",
+      "type": "스포츠",
+      "location": "인도 뭄바이",
+      "description": "장애인 하계 종합경기대회"
+    },
+    {
+      "name": "2027 윔블던",
+      "date": "2027-06-28",
+      "endDate": "2027-07-11",
+      "type": "스포츠",
+      "location": "영국 런던",
+      "description": "윔블던 테니스 챔피언십"
+    },
+    {
+      "name": "2027 US 오픈",
+      "date": "2027-08-30",
+      "endDate": "2027-09-12",
+      "type": "스포츠",
+      "location": "미국 뉴욕",
+      "description": "US 오픈 테니스 대회"
+    },
+    {
+      "name": "2027 F1 시즌",
+      "date": "2027-03",
+      "endDate": "2027-11",
+      "type": "스포츠",
+      "location": "전 세계",
+      "description": "포뮬러 원 월드 챔피언십"
+    },
+    {
+      "name": "2027 오스카 시상식",
+      "date": "2027-03-07",
+      "type": "문화/예술",
+      "location": "미국 로스앤젤레스",
+      "description": "아카데미 시상식"
+    },
+    {
+      "name": "2027 그래미 어워드",
+      "date": "2027-02-07",
+      "type": "문화/예술",
+      "location": "미국 로스앤젤레스",
+      "description": "그래미 음악 시상식"
+    },
+    {
+      "name": "2027 칸 영화제",
+      "date": "2027-05-12",
+      "endDate": "2027-05-23",
+      "type": "문화/예술",
+      "location": "프랑스 칸",
+      "description": "세계 3대 영화제 중 하나"
+    },
+    {
+      "name": "2027 베를린 영화제",
+      "date": "2027-02-11",
+      "endDate": "2027-02-21",
+      "type": "문화/예술",
+      "location": "독일 베를린",
+      "description": "세계 3대 영화제 중 하나"
+    },
+    {
+      "name": "2027 I/O 개발자 컨퍼런스",
+      "date": "2027-05",
+      "type": "기술",
+      "location": "미국 캘리포니아",
+      "description": "Google 개발자 컨퍼런스"
+    },
+    {
+      "name": "2027 WWDC",
+      "date": "2027-06",
+      "type": "기술",
+      "location": "미국 쿠퍼티노",
+      "description": "Apple 개발자 컨퍼런스"
+    },
+    {
+      "name": "2027 CES",
+      "date": "2027-01-05",
+      "endDate": "2027-01-08",
+      "type": "기술",
+      "location": "미국 라스베이거스",
+      "description": "세계 최대 가전·IT 전시회"
+    },
+    {
+      "name": "2027 G7 정상회의",
+      "date": "2027-06",
+      "type": "정치/경제",
+      "location": "캐나다",
+      "description": "주요 7개국 정상회의"
+    },
+    {
+      "name": "2027 G20 정상회의",
+      "date": "2027-11",
+      "type": "정치/경제",
+      "location": "남아프리카공화국",
+      "description": "20개국 정상회의"
+    },
+    {
+      "name": "2027 프랑스 대통령 선거",
+      "date": "2027-04",
+      "type": "정치/경제",
+      "location": "프랑스",
+      "description": "프랑스 대통령 선거"
+    },
+    {
+      "name": "2027 COP31 기후변화협약 당사국총회",
+      "date": "2027-11",
+      "type": "환경",
+      "location": "호주",
+      "description": "유엔 기후변화협약 당사국 총회"
+    },
+    {
+      "name": "2027 중국 유인 화성 탐사",
+      "date": "2027",
+      "type": "우주/과학",
+      "location": "화성",
+      "description": "중국의 유인 화성 탐사 미션 계획"
+    },
+    {
+      "name": "2027 베가-E 로켓 발사",
+      "date": "2027",
+      "type": "우주/과학",
+      "location": "우주",
+      "description": "ESA의 재사용 가능한 로켓 발사"
+    }
+  ]
+}
+

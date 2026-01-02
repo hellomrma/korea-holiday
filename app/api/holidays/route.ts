@@ -36,11 +36,52 @@ export async function GET(request: Request) {
 
   const apiKey = process.env.PUBLIC_DATA_API_KEY
 
+  // 백업 데이터 사용 함수
+  const useBackupData = () => {
+    try {
+      const yearNum = parseInt(year)
+      const monthNum = parseInt(month)
+      
+      // 백업 데이터 파일 읽기
+      const backupFilePath = join(process.cwd(), 'app', 'data', 'backup-holidays.json')
+      const backupData = JSON.parse(readFileSync(backupFilePath, 'utf-8'))
+      const backupYear = backupData[yearNum.toString()]
+      
+      if (backupYear && backupYear[monthNum.toString()]) {
+        const backupMonthData = backupYear[monthNum.toString()] as Array<{
+          date: number
+          name: string
+          isHoliday: boolean
+          dateKind: string
+          dateKindName: string
+          seq: number
+        }>
+        
+        console.log(`백업 데이터 사용: ${year}년 ${month}월`)
+        return NextResponse.json({
+          year: yearNum,
+          month: monthNum,
+          holidays: backupMonthData.filter(item => item.isHoliday),
+        })
+      } else {
+        return NextResponse.json(
+          { error: `백업 데이터에 ${year}년 ${month}월 공휴일 정보가 없습니다.` },
+          { status: 500 }
+        )
+      }
+    } catch (backupError) {
+      console.error('백업 데이터 읽기 오류:', backupError)
+      return NextResponse.json(
+        { error: '공휴일 정보를 가져오는 중 오류가 발생했습니다.' },
+        { status: 500 }
+      )
+    }
+  }
+
+  // API 키가 없으면 바로 백업 데이터 사용
   if (!apiKey) {
-    return NextResponse.json(
-      { error: 'API 키가 설정되지 않았습니다. PUBLIC_DATA_API_KEY 환경변수를 설정해주세요.' },
-      { status: 500 }
-    )
+    console.log('API 키가 없어 백업 데이터를 사용합니다.')
+    return useBackupData()
   }
 
   try {
@@ -203,42 +244,9 @@ export async function GET(request: Request) {
   } catch (error) {
     console.error('공휴일 API 오류:', error)
     
-    // 백업 데이터 확인 (2025, 2026, 2027년만 지원)
-    try {
-      const yearNum = parseInt(year)
-      const monthNum = parseInt(month)
-      
-      // 백업 데이터 파일 읽기
-      const backupFilePath = join(process.cwd(), 'app', 'data', 'backup-holidays.json')
-      const backupData = JSON.parse(readFileSync(backupFilePath, 'utf-8'))
-      const backupYear = backupData[yearNum.toString()]
-      
-      if (backupYear && backupYear[monthNum.toString()]) {
-        const backupMonthData = backupYear[monthNum.toString()] as Array<{
-          date: number
-          name: string
-          isHoliday: boolean
-          dateKind: string
-          dateKindName: string
-          seq: number
-        }>
-        
-        console.log(`백업 데이터 사용: ${year}년 ${month}월`)
-        return NextResponse.json({
-          year: yearNum,
-          month: monthNum,
-          holidays: backupMonthData.filter(item => item.isHoliday),
-        })
-      }
-    } catch (backupError) {
-      console.error('백업 데이터 읽기 오류:', backupError)
-    }
-    
-    // 백업 데이터도 없는 경우
-    return NextResponse.json(
-      { error: '공휴일 정보를 가져오는 중 오류가 발생했습니다.' },
-      { status: 500 }
-    )
+    // API 실패 시 백업 데이터 사용
+    console.log('API 호출 실패, 백업 데이터를 사용합니다.')
+    return useBackupData()
   }
 }
 
