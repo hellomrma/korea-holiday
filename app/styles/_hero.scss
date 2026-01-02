@@ -40,19 +40,19 @@
   
   &:focus-visible {
     background: $bg-hover;
-    border-color: $accent-blue-light;
+    border-color: $text-primary;
   }
 }
 
 .langButtonActive {
-  background: $accent-blue;
-  color: $text-primary;
-  border-color: $accent-blue-dark;
+  background: $text-primary;
+  color: $bg-primary;
+  border-color: $text-secondary;
 
   &:hover {
-    background: $accent-blue;
-    border-color: $accent-blue-dark;
-    color: $text-primary;
+    background: $text-secondary;
+    border-color: $text-primary;
+    color: $bg-primary;
   }
 }
 

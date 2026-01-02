@@ -4,18 +4,36 @@
 // Base Styles
 .skipLink {
   position: absolute;
-  top: -40px;
-  left: 0;
-  background: $accent-blue-light;
-  color: $text-primary;
-  padding: 8px 16px;
+  top: -60px;
+  left: 1rem;
+  background: $text-primary;
+  color: $bg-primary;
+  padding: 0.75rem 1.5rem;
   text-decoration: none;
-  z-index: 100;
-  border-radius: 0;
+  z-index: 1000;
+  border-radius: 4px;
   font-weight: 600;
-
+  font-size: 0.875rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  
   &:focus {
-    top: 0;
+    top: 1rem;
+    outline: 2px solid $text-primary;
+    outline-offset: 2px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+    transform: translateY(0);
+  }
+  
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+  
+  &:hover {
+    background: $text-secondary;
+    color: $bg-primary;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
   }
 }
 

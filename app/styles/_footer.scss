@@ -39,14 +39,14 @@
   transition: color 0.2s;
 
   &:hover {
-    color: $accent-blue-light;
+    color: $text-primary;
   }
 
   @include focus-visible;
   
   &:focus-visible {
     border-radius: 0;
-    color: $accent-blue-light;
+    color: $text-primary;
   }
 }
 

@@ -30,30 +30,30 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 
   &:hover {
-    @include gradient-bg(rgba(37, 37, 45, 0.95), rgba(59, 130, 246, 0.15));
-    border-color: $accent-blue-light;
-    color: $text-secondary;
+    @include gradient-bg(rgba(37, 37, 45, 0.95), rgba(45, 45, 55, 0.98));
+    border-color: $text-primary;
+    color: $text-primary;
   }
 
   @include focus-visible;
   
   &:focus-visible {
     background: $bg-tertiary;
-    border-color: $accent-blue-light;
+    border-color: $text-primary;
   }
 }
 
 .yearTabActive {
-  background: linear-gradient(135deg, $accent-blue 0%, $accent-blue-dark 100%);
-  color: $text-primary;
-  border-color: $accent-blue-light;
+  background: $text-primary;
+  color: $bg-primary;
+  border-color: $text-secondary;
   font-weight: 600;
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 
   &:hover {
-    background: linear-gradient(135deg, $accent-blue-dark 0%, $accent-blue 100%);
-    border-color: $accent-blue-light;
-    color: $text-primary;
+    background: $text-secondary;
+    border-color: $text-primary;
+    color: $bg-primary;
   }
 
   @include focus-visible;
@@ -194,8 +194,8 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 
   &:hover {
-    @include gradient-bg(rgba(45, 45, 55, 0.9), rgba(59, 130, 246, 0.1));
-    border-left-color: $accent-blue-light;
+    @include gradient-bg(rgba(45, 45, 55, 0.9), rgba(55, 55, 65, 0.95));
+    border-left-color: $text-primary;
     transform: translateX(2px);
   }
 
@@ -218,7 +218,7 @@
 .date {
   font-size: 1rem;
   font-weight: 700;
-  color: $accent-blue-light;
+  color: $text-primary;
   letter-spacing: -0.02em;
 }
 
@@ -272,10 +272,10 @@
   
   // 국경일 스타일
   &.national {
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(37, 99, 235, 0.3) 100%);
-    color: $accent-blue-light;
-    border: 1px solid rgba(59, 130, 246, 0.4);
-    box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+    background: rgba(255, 255, 255, 0.15);
+    color: $text-primary;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   }
   
   // 대체공휴일 스타일

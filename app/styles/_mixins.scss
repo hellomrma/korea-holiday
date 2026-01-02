@@ -39,7 +39,7 @@
 // Focus visible style
 @mixin focus-visible {
   &:focus-visible {
-    outline: 2px solid $accent-blue-light;
+    outline: 2px solid $text-primary;
     outline-offset: 2px;
   }
 }

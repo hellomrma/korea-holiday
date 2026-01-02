@@ -535,7 +535,7 @@ export default function Home() {
                   <div className={styles.legendItem}>
                     <span 
                       className={styles.legendColor} 
-                      style={{ backgroundColor: '#60a5fa' }}
+                      style={{ backgroundColor: '#ffffff' }}
                       aria-hidden="true"
                     ></span>
                     <span className={styles.legendLabel}>{t('legend.national')}</span>
