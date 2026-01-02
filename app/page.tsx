@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import styles from './page.module.css'
+import majorEventsData from './data/major-events.json'
 
 interface Holiday {
   date: number
@@ -15,6 +16,15 @@ interface Holiday {
 interface HolidayByMonth {
   month: number
   holidays: Holiday[]
+}
+
+interface MajorEvent {
+  name: string
+  date: string
+  endDate?: string
+  type: string
+  location: string
+  description: string
 }
 
 export default function Home() {
@@ -265,38 +275,96 @@ export default function Home() {
     return null
   }
 
-  return (
-    <main className={styles.main}>
-      <div className={styles.container}>
-        <h1 className={styles.title}>대한민국 공휴일 확인</h1>
+  // 주요 이벤트 데이터 가져오기 및 날짜 순 정렬
+  const getMajorEvents = (): MajorEvent[] => {
+    const yearStr = selectedYear.toString()
+    const events = (majorEventsData as Record<string, MajorEvent[]>)[yearStr] || []
+    
+    // 날짜 기준으로 정렬
+    return events.sort((a, b) => {
+      // 날짜 파싱 함수
+      const parseDate = (dateStr: string): number => {
+        if (!dateStr) return 99999999 // 날짜가 없으면 맨 뒤로
         
-        <div className={styles.controls}>
-          <div className={styles.yearTabs}>
+        // YYYY-MM-DD 형식
+        if (dateStr.match(/^\d{4}-\d{2}-\d{2}$/)) {
+          return parseInt(dateStr.replace(/-/g, ''), 10)
+        }
+        
+        // YYYY-MM 형식
+        if (dateStr.match(/^\d{4}-\d{2}$/)) {
+          return parseInt(dateStr.replace(/-/g, '') + '01', 10) // 월의 첫날로 처리
+        }
+        
+        // YYYY 형식
+        if (dateStr.match(/^\d{4}$/)) {
+          return parseInt(dateStr + '0101', 10) // 연도의 첫날로 처리
+        }
+        
+        return 99999999 // 알 수 없는 형식은 맨 뒤로
+      }
+      
+      const dateA = parseDate(a.date)
+      const dateB = parseDate(b.date)
+      
+      return dateA - dateB
+    })
+  }
+
+  const majorEvents = getMajorEvents()
+
+  return (
+    <>
+      <a href="#main-content" className={styles.skipLink}>
+        본문으로 건너뛰기
+      </a>
+      <main id="main-content" className={styles.main} role="main" aria-label="대한민국 공휴일과 전세계 주요 이벤트">
+        <div className={styles.container}>
+          <header>
+            <h1 className={styles.title}>대한민국 공휴일과 전세계 주요 이벤트</h1>
+            <p className={styles.subtitle}>
+              연도별, 월별 공휴일 조회 및 연휴 정보 제공. 전세계 주요 이벤트 정보 포함. 공공데이터포털 한국천문연구원 특일정보 API 기반.
+            </p>
+          </header>
+        
+        <nav className={styles.controls} aria-label="년도 선택">
+          <div className={styles.yearTabs} role="tablist" aria-label="년도 선택 탭">
             {yearList.map((year) => (
               <button
                 key={year}
                 onClick={() => changeYear(year)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    changeYear(year)
+                  }
+                }}
                 className={`${styles.yearTab} ${selectedYear === year ? styles.yearTabActive : ''}`}
+                role="tab"
+                aria-selected={selectedYear === year}
                 aria-label={`${year}년 선택`}
+                tabIndex={selectedYear === year ? 0 : -1}
               >
                 {year}
               </button>
             ))}
           </div>
           {!loading && !error && (
-            <div className={styles.yearSummary}>
+            <div className={styles.yearSummary} aria-live="polite" aria-atomic="true">
               총 {getTotalHolidays()}개의 공휴일
             </div>
           )}
-        </div>
+        </nav>
 
         {loading && (
-          <div className={styles.loading}>로딩 중...</div>
+          <div className={styles.loading} role="status" aria-live="polite" aria-label="로딩 중">
+            <span aria-hidden="true">로딩 중...</span>
+          </div>
         )}
 
         {error && (
-          <div className={styles.error}>
-            {error}
+          <div className={styles.error} role="alert" aria-live="assertive">
+            <strong>오류:</strong> {error}
             <br />
             <small>공공데이터포털에서 API 키를 발급받아 환경변수에 설정해주세요.</small>
           </div>
@@ -305,29 +373,37 @@ export default function Home() {
         {!loading && !error && (
           <>
             {/* 범례 레이블 */}
-            <div className={styles.legend}>
+            <section className={styles.legend} aria-label="공휴일 범례">
               <div className={styles.legendItem}>
-                <span className={styles.legendColor} style={{ backgroundColor: '#60a5fa' }}></span>
+                <span 
+                  className={styles.legendColor} 
+                  style={{ backgroundColor: '#60a5fa' }}
+                  aria-hidden="true"
+                ></span>
                 <span className={styles.legendLabel} style={{ color: '#60a5fa' }}>국경일</span>
               </div>
               <div className={styles.legendItem}>
-                <span className={styles.legendColor} style={{ backgroundColor: '#f87171' }}></span>
+                <span 
+                  className={styles.legendColor} 
+                  style={{ backgroundColor: '#f87171' }}
+                  aria-hidden="true"
+                ></span>
                 <span className={styles.legendLabel} style={{ color: '#f87171' }}>대체공휴일</span>
               </div>
-            </div>
+            </section>
 
-            <div className={styles.yearHolidayList}>
+            <section className={styles.yearHolidayList} aria-label={`${selectedYear}년 공휴일 목록`}>
             {holidaysByMonth.map((monthData) => (
-              <div key={monthData.month} className={styles.monthSection}>
-                <h3 className={styles.monthHeader}>
+              <article key={monthData.month} className={styles.monthSection}>
+                <h2 className={styles.monthHeader}>
                   {getMonthName(monthData.month)} <span className={styles.monthCount}>({monthData.holidays.length}개)</span>
-                </h3>
+                </h2>
                 {monthData.holidays.length === 0 ? (
-                  <div className={styles.emptyMonth}>
+                  <p className={styles.emptyMonth} aria-live="polite">
                     공휴일이 없습니다.
-                  </div>
+                  </p>
                 ) : (
-                  <div className={styles.monthHolidayList}>
+                  <ul className={styles.monthHolidayList} role="list">
                     {monthData.holidays
                       .filter((holiday) => {
                         // 국경일(dateKind: '01') 또는 대체공휴일만 표시
@@ -338,21 +414,32 @@ export default function Home() {
                         const holidayType = getHolidayType(holiday)
                         const typeColor = getHolidayTypeColor(holidayType)
                         const holidayPeriod = calculateHolidayPeriod(holiday)
+                        const formattedDate = formatDate(holiday.date)
+                        const dayOfWeek = getDayOfWeek(holiday.date)
+                        const isTodayHoliday = isToday(holiday.date)
                         return (
-                      <div 
+                      <li 
                         key={holiday.date} 
-                        className={`${styles.holidayItem} ${isToday(holiday.date) ? styles.today : ''}`}
+                        className={`${styles.holidayItem} ${isTodayHoliday ? styles.today : ''}`}
                         style={{ borderLeftColor: typeColor }}
+                        role="listitem"
+                        aria-label={`${formattedDate} ${dayOfWeek}요일 ${holiday.name}${holidayPeriod ? ` ${holidayPeriod.description}` : ''}${isTodayHoliday ? ' 오늘' : ''}`}
                       >
                         <div className={styles.holidayDate}>
-                          <span className={styles.date}>{formatDate(holiday.date)}</span>
-                          <span className={styles.dayOfWeek}>({getDayOfWeek(holiday.date)})</span>
+                          <time dateTime={formattedDate} className={styles.date}>
+                            {formattedDate}
+                          </time>
+                          <span className={styles.dayOfWeek} aria-label={`${dayOfWeek}요일`}>
+                            ({dayOfWeek})
+                          </span>
                           {holidayPeriod && (
-                            <span className={styles.holidayPeriod}>{holidayPeriod.description}</span>
+                            <span className={styles.holidayPeriod} aria-label="연휴 정보">
+                              {holidayPeriod.description}
+                            </span>
                           )}
                         </div>
                         <div className={styles.holidayInfo}>
-                          <div className={styles.holidayName}>{holiday.name}</div>
+                          <strong className={styles.holidayName}>{holiday.name}</strong>
                           {holiday.dateKindName && (
                             <span 
                               className={styles.dateKindBadge}
@@ -361,42 +448,98 @@ export default function Home() {
                                 color: holidayType === 'national' ? '#60a5fa' : '#f87171',
                                 borderColor: holidayType === 'national' ? '#2a4a6f' : '#4a2a2a',
                               }}
+                              aria-label={`${holiday.dateKindName} 공휴일`}
                             >
                               {holiday.dateKindName}
                             </span>
                           )}
                         </div>
-                        {isToday(holiday.date) && (
-                          <span className={styles.todayBadge}>오늘</span>
+                        {isTodayHoliday && (
+                          <span className={styles.todayBadge} aria-label="오늘">오늘</span>
                         )}
-                      </div>
+                      </li>
                       )
                     })}
-                  </div>
+                  </ul>
                 )}
-              </div>
+              </article>
             ))}
-          </div>
+          </section>
           </>
         )}
 
-        <div className={styles.footer}>
+        {/* 주요 이벤트 섹션 */}
+        {!loading && !error && majorEvents.length > 0 && (
+          <section className={styles.eventsSection} aria-label={`${selectedYear}년 주요 이벤트`}>
+            <h2 className={styles.eventsTitle}>{selectedYear}년 주요 이벤트</h2>
+            <div className={styles.eventsList}>
+              {majorEvents.map((event, index) => (
+                <article key={index} className={styles.eventItem} data-type={event.type}>
+                  <div className={styles.eventHeader}>
+                    <h3 className={styles.eventName}>{event.name}</h3>
+                    <span className={styles.eventType} data-type={event.type}>{event.type}</span>
+                  </div>
+                  <div className={styles.eventDetails}>
+                    <time dateTime={event.date} className={styles.eventDate}>
+                      {event.date.replace(/-/g, '.')}
+                      {event.endDate && ` ~ ${event.endDate.replace(/-/g, '.')}`}
+                    </time>
+                    <span className={styles.eventLocation}>{event.location}</span>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
+        )}
+
+        <footer className={styles.footer}>
           <p>공공데이터포털 한국천문연구원_특일정보 API 활용</p>
           <div className={styles.copyright}>
             <p>© {new Date().getFullYear()} hellomrma. All rights reserved.</p>
-            <div className={styles.footerLinks}>
-              <a href="mailto:hellomrma@gmail.com" className={styles.footerLink}>hellomrma@gmail.com</a>
-              <span className={styles.footerSeparator}>•</span>
-              <a href="https://github.com/hellomrma" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>GitHub</a>
-              <span className={styles.footerSeparator}>•</span>
-              <a href="https://www.linkedin.com/in/hellomrma" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>LinkedIn</a>
-              <span className={styles.footerSeparator}>•</span>
-              <a href="https://twitter.com/hellomrma" target="_blank" rel="noopener noreferrer" className={styles.footerLink}>@hellomrma</a>
-            </div>
+            <nav className={styles.footerLinks} aria-label="소셜 링크">
+              <a 
+                href="mailto:hellomrma@gmail.com" 
+                className={styles.footerLink}
+                aria-label="이메일로 연락하기"
+              >
+                hellomrma@gmail.com
+              </a>
+              <span className={styles.footerSeparator} aria-hidden="true">•</span>
+              <a 
+                href="https://github.com/hellomrma" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.footerLink}
+                aria-label="GitHub 프로필 보기 (새 창)"
+              >
+                GitHub
+              </a>
+              <span className={styles.footerSeparator} aria-hidden="true">•</span>
+              <a 
+                href="https://www.linkedin.com/in/hellomrma" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.footerLink}
+                aria-label="LinkedIn 프로필 보기 (새 창)"
+              >
+                LinkedIn
+              </a>
+              <span className={styles.footerSeparator} aria-hidden="true">•</span>
+              <a 
+                href="https://twitter.com/hellomrma" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.footerLink}
+                aria-label="Twitter 프로필 보기 (새 창)"
+              >
+                @hellomrma
+              </a>
+            </nav>
           </div>
-        </div>
+        </footer>
       </div>
     </main>
+    </>
   )
 }
 
