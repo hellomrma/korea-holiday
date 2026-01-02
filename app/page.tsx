@@ -125,6 +125,49 @@ export default function Home() {
     return holidaysByMonth.reduce((sum, monthData) => sum + monthData.holidays.length, 0)
   }
 
+  // 주말 개수 계산 (토요일 + 일요일)
+  const getWeekendCount = (year: number): number => {
+    let weekendCount = 0
+    for (let month = 0; month < 12; month++) {
+      const daysInMonth = new Date(year, month + 1, 0).getDate()
+      for (let day = 1; day <= daysInMonth; day++) {
+        const date = new Date(year, month, day)
+        const dayOfWeek = date.getDay()
+        if (dayOfWeek === 0 || dayOfWeek === 6) { // 일요일(0) 또는 토요일(6)
+          weekendCount++
+        }
+      }
+    }
+    return weekendCount
+  }
+
+  // 평일 공휴일 개수 계산 (주말이 아닌 공휴일)
+  const getWeekdayHolidays = (): number => {
+    let weekdayHolidayCount = 0
+    holidaysByMonth.forEach(monthData => {
+      monthData.holidays.forEach(holiday => {
+        const dateStr = holiday.date.toString()
+        const y = parseInt(dateStr.substring(0, 4))
+        const m = parseInt(dateStr.substring(4, 6)) - 1
+        const d = parseInt(dateStr.substring(6, 8))
+        const date = new Date(y, m, d)
+        const dayOfWeek = date.getDay()
+        // 평일(월~금)인 경우만 카운트
+        if (dayOfWeek !== 0 && dayOfWeek !== 6) {
+          weekdayHolidayCount++
+        }
+      })
+    })
+    return weekdayHolidayCount
+  }
+
+  // 총 휴일 수 계산 (주말 + 평일 공휴일)
+  const getTotalDaysOff = (): number => {
+    const weekendCount = getWeekendCount(selectedYear)
+    const weekdayHolidayCount = getWeekdayHolidays()
+    return weekendCount + weekdayHolidayCount
+  }
+
   const getHolidayType = (holiday: Holiday): string => {
     // 대체공휴일 확인
     if (holiday.name.includes('대체') || holiday.name.includes('대체공휴일')) {
@@ -319,15 +362,28 @@ export default function Home() {
         본문으로 건너뛰기
       </a>
       <main id="main-content" className={styles.main} role="main" aria-label="대한민국 공휴일과 전세계 주요 이벤트">
-        <div className={styles.container}>
-          <header>
-            <h1 className={styles.title}>대한민국 공휴일과 전세계 주요 이벤트</h1>
-            <p className={styles.subtitle}>
-              연도별, 월별 공휴일 조회 및 연휴 정보 제공. 전세계 주요 이벤트 정보 포함. 공공데이터포털 한국천문연구원 특일정보 API 기반.
+        {/* Key Message - Hero Section */}
+        <section className={styles.heroSection}>
+          <div className={styles.heroContent}>
+            <h1 className={styles.heroTitle}>한국의 공휴일과 전 세계 주요 이벤트</h1>
+            <p className={styles.heroSubtitle}>
+              언제 쉬는지 궁금하셨나요?<br />
+              연휴 정보부터 글로벌 이벤트까지 한 번에 확인하세요
             </p>
-          </header>
+          </div>
+        </section>
+
+        <div className={styles.container}>
+          {/* Calendar Section */}
+          <section className={styles.calendarSection} id="calendar">
+            <div className={styles.sectionHeader}>
+              <h2 className={styles.sectionTitle}>{selectedYear}년 공휴일</h2>
+              <p className={styles.sectionDescription}>
+                올해 언제 쉴 수 있는지 확인해보세요
+              </p>
+            </div>
         
-        <nav className={styles.controls} aria-label="년도 선택">
+            <nav className={styles.controls} aria-label="년도 선택">
           <div className={styles.yearTabs} role="tablist" aria-label="년도 선택 탭">
             {yearList.map((year) => (
               <button
@@ -351,7 +407,11 @@ export default function Home() {
           </div>
           {!loading && !error && (
             <div className={styles.yearSummary} aria-live="polite" aria-atomic="true">
-              총 {getTotalHolidays()}개의 공휴일
+              올해 총 {getTotalHolidays()}일의 공휴일이 있어요
+              <br />
+              <span className={styles.totalDaysOff}>
+                (주말 포함 총 {getTotalDaysOff()}일의 휴일)
+              </span>
             </div>
           )}
         </nav>
@@ -370,29 +430,29 @@ export default function Home() {
           </div>
         )}
 
-        {!loading && !error && (
-          <>
-            {/* 범례 레이블 */}
-            <section className={styles.legend} aria-label="공휴일 범례">
-              <div className={styles.legendItem}>
-                <span 
-                  className={styles.legendColor} 
-                  style={{ backgroundColor: '#60a5fa' }}
-                  aria-hidden="true"
-                ></span>
-                <span className={styles.legendLabel} style={{ color: '#60a5fa' }}>국경일</span>
-              </div>
-              <div className={styles.legendItem}>
-                <span 
-                  className={styles.legendColor} 
-                  style={{ backgroundColor: '#f87171' }}
-                  aria-hidden="true"
-                ></span>
-                <span className={styles.legendLabel} style={{ color: '#f87171' }}>대체공휴일</span>
-              </div>
-            </section>
+            {!loading && !error && (
+              <>
+                {/* 범례 레이블 */}
+                <div className={styles.legend} aria-label="공휴일 범례">
+                  <div className={styles.legendItem}>
+                    <span 
+                      className={styles.legendColor} 
+                      style={{ backgroundColor: '#60a5fa' }}
+                      aria-hidden="true"
+                    ></span>
+                    <span className={styles.legendLabel} style={{ color: '#60a5fa' }}>국경일</span>
+                  </div>
+                  <div className={styles.legendItem}>
+                    <span 
+                      className={styles.legendColor} 
+                      style={{ backgroundColor: '#f87171' }}
+                      aria-hidden="true"
+                    ></span>
+                    <span className={styles.legendLabel} style={{ color: '#f87171' }}>대체공휴일</span>
+                  </div>
+                </div>
 
-            <section className={styles.yearHolidayList} aria-label={`${selectedYear}년 공휴일 목록`}>
+                <div className={styles.yearHolidayList} aria-label={`${selectedYear}년 공휴일 목록`}>
             {holidaysByMonth.map((monthData) => (
               <article key={monthData.month} className={styles.monthSection}>
                 <h2 className={styles.monthHeader}>
@@ -400,7 +460,7 @@ export default function Home() {
                 </h2>
                 {monthData.holidays.length === 0 ? (
                   <p className={styles.emptyMonth} aria-live="polite">
-                    공휴일이 없습니다.
+                    이번 달에는 공휴일이 없어요
                   </p>
                 ) : (
                   <ul className={styles.monthHolidayList} role="list">
@@ -444,9 +504,9 @@ export default function Home() {
                             <span 
                               className={styles.dateKindBadge}
                               style={{
-                                backgroundColor: holidayType === 'national' ? '#1e3a5f' : '#3a1a1a',
-                                color: holidayType === 'national' ? '#60a5fa' : '#f87171',
-                                borderColor: holidayType === 'national' ? '#2a4a6f' : '#4a2a2a',
+                                backgroundColor: holidayType === 'national' ? '#dbeafe' : '#fee2e2',
+                                color: holidayType === 'national' ? '#1e40af' : '#991b1b',
+                                borderColor: holidayType === 'national' ? '#93c5fd' : '#fca5a5',
                               }}
                               aria-label={`${holiday.dateKindName} 공휴일`}
                             >
@@ -463,16 +523,35 @@ export default function Home() {
                   </ul>
                 )}
               </article>
-            ))}
+                ))}
+              </div>
+              </>
+            )}
           </section>
-          </>
-        )}
 
-        {/* 주요 이벤트 섹션 */}
-        {!loading && !error && majorEvents.length > 0 && (
-          <section className={styles.eventsSection} aria-label={`${selectedYear}년 주요 이벤트`}>
-            <h2 className={styles.eventsTitle}>{selectedYear}년 주요 이벤트</h2>
-            <div className={styles.eventsList}>
+          {/* Key Message - Middle Section */}
+          {!loading && !error && majorEvents.length > 0 && (
+            <section className={styles.keyMessageSection}>
+              <div className={styles.keyMessageContent}>
+                <h2 className={styles.keyMessageTitle}>이번 해, 전 세계에서 일어나는 일들</h2>
+                <p className={styles.keyMessageText}>
+                  {selectedYear}년, 놓치면 안 될 스포츠, 과학, 기술, 문화 이벤트를<br />
+                  미리 확인하고 일정을 계획해보세요
+                </p>
+              </div>
+            </section>
+          )}
+
+          {/* Event List Section */}
+          {!loading && !error && majorEvents.length > 0 && (
+            <section className={styles.eventsSection} id="events" aria-label={`${selectedYear}년 주요 이벤트`}>
+              <div className={styles.sectionHeader}>
+                <h2 className={styles.sectionTitle}>{selectedYear}년 주요 이벤트</h2>
+                <p className={styles.sectionDescription}>
+                  월별로 정리된 전 세계 주요 행사들
+                </p>
+              </div>
+              <div className={styles.eventsList}>
               {majorEvents.map((event, index) => (
                 <article key={index} className={styles.eventItem} data-type={event.type}>
                   <div className={styles.eventHeader}>
@@ -488,13 +567,13 @@ export default function Home() {
                   </div>
                 </article>
               ))}
-            </div>
-          </section>
-        )}
+              </div>
+            </section>
+          )}
 
-        <footer className={styles.footer}>
-          <p>공공데이터포털 한국천문연구원_특일정보 API 활용</p>
-          <div className={styles.copyright}>
+          <footer className={styles.footer}>
+            <p>공공데이터포털 한국천문연구원_특일정보 API 활용</p>
+            <div className={styles.copyright}>
             <p>© {new Date().getFullYear()} hellomrma. All rights reserved.</p>
             <nav className={styles.footerLinks} aria-label="소셜 링크">
               <a 
@@ -535,10 +614,10 @@ export default function Home() {
                 @hellomrma
               </a>
             </nav>
-          </div>
-        </footer>
-      </div>
-    </main>
+            </div>
+          </footer>
+        </div>
+      </main>
     </>
   )
 }
