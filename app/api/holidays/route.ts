@@ -37,7 +37,7 @@ export async function GET(request: Request) {
   const apiKey = process.env.PUBLIC_DATA_API_KEY
 
   // 백업 데이터 사용 함수
-  const useBackupData = () => {
+  const getBackupData = () => {
     try {
       const yearNum = parseInt(year)
       const monthNum = parseInt(month)
@@ -81,7 +81,7 @@ export async function GET(request: Request) {
   // API 키가 없으면 바로 백업 데이터 사용
   if (!apiKey) {
     console.log('API 키가 없어 백업 데이터를 사용합니다.')
-    return useBackupData()
+    return getBackupData()
   }
 
   try {
@@ -246,7 +246,7 @@ export async function GET(request: Request) {
     
     // API 실패 시 백업 데이터 사용
     console.log('API 호출 실패, 백업 데이터를 사용합니다.')
-    return useBackupData()
+    return getBackupData()
   }
 }
 

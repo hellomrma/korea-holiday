@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import styles from '../page.module.scss'
@@ -66,11 +66,7 @@ export default function Home() {
     return value
   }
 
-  useEffect(() => {
-    fetchYearHolidays(selectedYear)
-  }, [selectedYear, language])
-
-  const fetchYearHolidays = async (year: number) => {
+  const fetchYearHolidays = useCallback(async (year: number) => {
     setLoading(true)
     setError(null)
     
@@ -91,7 +87,7 @@ export default function Home() {
           return holiday.dateKind === '01' || isSubstitute
         }).map((holiday: Holiday) => {
           // 공휴일 이름 번역
-          const holidayNames = holidayNamesData[language as 'ko' | 'en']
+          const holidayNames = holidayNamesData[language as 'ko' | 'en'] as Record<string, string>
           let translatedName = holidayNames[holiday.name]
           
           // 번역이 없으면 복합 이름 처리
@@ -152,7 +148,12 @@ export default function Home() {
     } finally {
       setLoading(false)
     }
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [language])
+
+  useEffect(() => {
+    fetchYearHolidays(selectedYear)
+  }, [selectedYear, fetchYearHolidays])
 
   const changeYear = (year: number) => {
     setSelectedYear(year)
@@ -199,7 +200,7 @@ export default function Home() {
 
   const getMonthName = (month: number): string => {
     const translations = language === 'ko' ? koTranslations : enTranslations
-    return translations.months[month.toString()] || `${month}월`
+    return (translations.months as Record<string, string>)[month.toString()] || `${month}월`
   }
 
   const getTotalHolidays = (): number => {
