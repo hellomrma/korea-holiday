@@ -1,0 +1,89 @@
+@import 'variables';
+@import 'mixins';
+
+// Base Styles
+.skipLink {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: $accent-blue-light;
+  color: $text-primary;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 100;
+  border-radius: 0;
+  font-weight: 600;
+
+  &:focus {
+    top: 0;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+// Section Styles
+.calendarSection,
+.eventsSection {
+  margin-bottom: 3rem;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: $text-primary;
+  margin-bottom: 0.5rem;
+  @include text-shadow(0.2);
+}
+
+.sectionDescription {
+  font-size: 0.875rem;
+  color: $text-secondary;
+  margin: 0;
+}
+
+// Loading, Error, Empty States
+.loading,
+.error,
+.empty {
+  text-align: center;
+  padding: 1rem;
+  color: $text-secondary;
+  font-size: 0.8125rem;
+}
+
+.error {
+  color: $text-primary;
+  background: $bg-tertiary;
+  border: 1px solid $accent-red;
+  border-radius: 0;
+  padding: 0.75rem;
+
+  small {
+    display: block;
+    margin-top: 0.375rem;
+    font-size: 0.625rem;
+    color: $text-tertiary;
+  }
+}
+

@@ -1,0 +1,142 @@
+@import 'variables';
+@import 'mixins';
+
+// Events Section
+.eventsSection {
+  margin-top: 0;
+  padding-top: 0;
+  border-top: none;
+}
+
+.eventsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.eventItem {
+  @include gradient-bg(rgba(26, 26, 31, 0.9), rgba(37, 37, 45, 0.95));
+  border-left: 3px solid $border-primary;
+  border-radius: 0;
+  padding: 0.875rem;
+  transition: all 0.2s;
+  @include glass-effect;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    @include gradient-bg(rgba(37, 37, 45, 0.95), rgba(45, 45, 55, 1));
+    border-left-color: $border-secondary;
+    transform: translateY(-2px);
+  }
+
+  // 이벤트 타입별 좌측 테두리 색상
+  &[data-type="스포츠"] {
+    border-left-color: $accent-blue-light;
+  }
+
+  &[data-type="우주/과학"] {
+    border-left-color: $accent-purple-light;
+  }
+
+  &[data-type="기술"] {
+    border-left-color: $accent-green-light;
+  }
+
+  &[data-type="문화/예술"] {
+    border-left-color: $accent-yellow;
+  }
+
+  &[data-type="환경"] {
+    border-left-color: $accent-green;
+  }
+
+  &[data-type="정치/경제"] {
+    border-left-color: $accent-orange;
+  }
+}
+
+.eventHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.625rem;
+}
+
+.eventName {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0;
+  flex: 1;
+  line-height: 1.4;
+}
+
+.eventType {
+  font-size: 0.625rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  position: relative;
+  @include badge-overlay;
+
+  // 이벤트 타입별 배지 색상
+  &[data-type="스포츠"] {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(37, 99, 235, 0.3) 100%);
+    color: $accent-blue-light;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+  }
+
+  &[data-type="우주/과학"] {
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.25) 0%, rgba(124, 58, 237, 0.3) 100%);
+    color: $accent-purple-light;
+    border: 1px solid rgba(139, 92, 246, 0.4);
+  }
+
+  &[data-type="기술"] {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(5, 150, 105, 0.3) 100%);
+    color: $accent-green-light;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+  }
+
+  &[data-type="문화/예술"] {
+    background: linear-gradient(135deg, rgba(234, 179, 8, 0.25) 0%, rgba(202, 138, 4, 0.3) 100%);
+    color: $accent-yellow-light;
+    border: 1px solid rgba(234, 179, 8, 0.4);
+  }
+
+  &[data-type="환경"] {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(5, 150, 105, 0.3) 100%);
+    color: $accent-green-light;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+  }
+
+  &[data-type="정치/경제"] {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.25) 0%, rgba(217, 119, 6, 0.3) 100%);
+    color: $accent-orange-light;
+    border: 1px solid rgba(245, 158, 11, 0.4);
+  }
+}
+
+.eventDetails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.eventDate {
+  font-size: 0.75rem;
+  color: $text-secondary;
+  font-weight: 500;
+}
+
+.eventLocation {
+  font-size: 0.75rem;
+  color: $text-tertiary;
+}
+

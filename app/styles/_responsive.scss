@@ -1,0 +1,131 @@
+@import 'variables';
+
+// Responsive Styles
+@media (max-width: 768px) {
+  .heroSection {
+    padding: 2rem 1rem;
+  }
+
+  .languageSwitcher {
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+
+  .langButton {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.6875rem;
+    min-width: 2rem;
+  }
+
+  .heroTitle {
+    font-size: 1.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 0.875rem;
+  }
+
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem;
+  }
+
+  .keyMessageSection {
+    padding: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .keyMessageTitle {
+    font-size: 1.25rem;
+  }
+
+  .keyMessageText {
+    font-size: 0.875rem;
+  }
+
+  .eventsList {
+    grid-template-columns: 1fr;
+  }
+
+  .eventItem {
+    padding: 0.75rem;
+  }
+
+  .eventName {
+    font-size: 0.875rem;
+  }
+
+  .eventType {
+    font-size: 0.5625rem;
+    padding: 0.125rem 0.375rem;
+  }
+
+  .eventDate,
+  .eventLocation {
+    font-size: 0.6875rem;
+  }
+
+  .yearTabs {
+    gap: 0.375rem;
+  }
+
+  .yearTab {
+    padding: 0.375rem 0.625rem;
+    font-size: 0.75rem;
+  }
+
+  .legend {
+    gap: 0.375rem;
+    padding: 0.5rem;
+  }
+
+  .legendLabel {
+    font-size: 0.5625rem;
+  }
+
+  .yearHolidayList {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .monthSection {
+    padding: 0.5rem;
+  }
+
+  .holidayItem {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  .holidayInfo {
+    align-items: flex-start;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .holidayDate {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .holidayName {
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  .date {
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .yearHolidayList {
+    grid-template-columns: 1fr;
+  }
+}
+

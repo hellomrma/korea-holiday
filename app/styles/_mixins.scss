@@ -1,0 +1,46 @@
+// Reusable Mixins
+
+// Glass morphism effect
+@mixin glass-effect {
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+// Gradient background
+@mixin gradient-bg($start: rgba(26, 26, 31, 0.9), $end: rgba(37, 37, 45, 0.95)) {
+  background: linear-gradient(135deg, $start 0%, $end 100%);
+}
+
+// Text shadow
+@mixin text-shadow($opacity: 0.2) {
+  text-shadow: 0 1px 4px rgba(0, 0, 0, $opacity);
+}
+
+// Box shadow
+@mixin box-shadow($opacity: 0.2) {
+  box-shadow: 0 2px 6px rgba(0, 0, 0, $opacity);
+}
+
+// Badge gradient overlay
+@mixin badge-overlay {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    border-radius: 4px;
+    pointer-events: none;
+  }
+}
+
+// Focus visible style
+@mixin focus-visible {
+  &:focus-visible {
+    outline: 2px solid $accent-blue-light;
+    outline-offset: 2px;
+  }
+}
+

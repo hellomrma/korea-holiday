@@ -1,44 +1,5 @@
-import type { Metadata } from 'next'
 import Script from 'next/script'
-import './globals.css'
-
-export const metadata: Metadata = {
-  title: '대한민국 공휴일과 전세계 주요 이벤트 | 한국 공휴일 캘린더',
-  description: '대한민국의 공휴일과 전세계 주요 이벤트를 한눈에 확인할 수 있는 서비스. 연도별, 월별 공휴일 조회, 연휴 정보 및 스포츠, 우주, 기술, 문화 등 글로벌 이벤트 제공.',
-  keywords: ['공휴일', '한국 공휴일', '공휴일 캘린더', '연휴', '국경일', '대체공휴일', '설날', '추석', '한글날', '월드컵', '올림픽', 'NASA', '주요 이벤트', '글로벌 이벤트', '국제 이벤트', '스포츠 이벤트', '우주 탐사', '기술 컨퍼런스', '문화 행사'],
-  authors: [{ name: 'hellomrma' }],
-  creator: 'hellomrma',
-  publisher: 'hellomrma',
-  openGraph: {
-    title: '대한민국 공휴일과 전세계 주요 이벤트',
-    description: '대한민국의 공휴일과 전세계 주요 이벤트를 한눈에 확인할 수 있는 서비스',
-    type: 'website',
-    locale: 'ko_KR',
-    siteName: '대한민국 공휴일과 전세계 주요 이벤트',
-  },
-  twitter: {
-    card: 'summary',
-    title: '대한민국 공휴일과 전세계 주요 이벤트',
-    description: '대한민국의 공휴일과 전세계 주요 이벤트를 한눈에 확인할 수 있는 서비스',
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
-  },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-  },
-  themeColor: '#fafafa',
-}
+import './globals.scss'
 
 export default function RootLayout({
   children,

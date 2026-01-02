@@ -11,6 +11,8 @@
     "개천절": "개천절",
     "한글날": "한글날",
     "크리스마스": "크리스마스",
+    "기독탄신일": "기독탄신일",
+    "1월1일": "1월1일",
     "대체공휴일": "대체공휴일"
   },
   "en": {
@@ -25,6 +27,8 @@
     "개천절": "National Foundation Day",
     "한글날": "Hangul Day",
     "크리스마스": "Christmas",
+    "기독탄신일": "Christmas",
+    "1월1일": "January 1st",
     "대체공휴일": "Substitute Holiday",
     "어린이날 대체공휴일": "Children's Day (Substitute)",
     "추석 대체공휴일": "Chuseok (Substitute)",
@@ -43,6 +47,8 @@
     "대체공휴일(추석)": "Chuseok (Substitute)",
     "대체공휴일(설날)": "Lunar New Year (Substitute)",
     "대체공휴일(크리스마스)": "Christmas (Substitute)",
+    "대체공휴일(기독탄신일)": "Christmas (Substitute)",
+    "대체공휴일(1월1일)": "January 1st (Substitute)",
     "대체공휴일(한글날)": "Hangul Day (Substitute)",
     "대체공휴일(개천절)": "National Foundation Day (Substitute)",
     "대체공휴일(광복절)": "Liberation Day (Substitute)",

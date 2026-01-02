@@ -1,0 +1,307 @@
+@import 'variables';
+@import 'mixins';
+
+// Calendar Controls
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 0.875rem;
+}
+
+.yearTabs {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.yearTab {
+  @include gradient-bg(rgba(26, 26, 31, 0.9), rgba(37, 37, 45, 0.95));
+  color: $text-tertiary;
+  border: 1px solid $border-primary;
+  border-radius: 4px;
+  padding: 0.5rem 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  @include glass-effect;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    @include gradient-bg(rgba(37, 37, 45, 0.95), rgba(59, 130, 246, 0.15));
+    border-color: $accent-blue-light;
+    color: $text-secondary;
+  }
+
+  @include focus-visible;
+  
+  &:focus-visible {
+    background: $bg-tertiary;
+    border-color: $accent-blue-light;
+  }
+}
+
+.yearTabActive {
+  background: linear-gradient(135deg, $accent-blue 0%, $accent-blue-dark 100%);
+  color: $text-primary;
+  border-color: $accent-blue-light;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+
+  &:hover {
+    background: linear-gradient(135deg, $accent-blue-dark 0%, $accent-blue 100%);
+    border-color: $accent-blue-light;
+    color: $text-primary;
+  }
+
+  @include focus-visible;
+}
+
+.yearSummary {
+  text-align: center;
+  font-size: 0.75rem;
+  color: $text-secondary;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.totalDaysOff {
+  font-size: 0.6875rem;
+  color: $text-tertiary;
+  font-weight: 400;
+}
+
+// Legend
+.legend {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0.625rem;
+  @include gradient-bg(rgba(26, 26, 31, 0.9), rgba(37, 37, 45, 0.95));
+  border-radius: 0;
+  margin-bottom: 0.875rem;
+  @include glass-effect;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.legendTitle {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0 0 0.5rem 0;
+  text-align: center;
+  width: 100%;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.legendColor {
+  width: 11px;
+  height: 11px;
+  border-radius: 0;
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.legendLabel {
+  font-size: 0.75rem;
+  color: $text-secondary;
+  font-weight: 500;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+// Year Holiday List
+.yearHolidayList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.875rem;
+  margin-top: 0.625rem;
+}
+
+.monthSection {
+  @include gradient-bg(rgba(26, 26, 31, 0.95), rgba(37, 37, 45, 0.98));
+  border-radius: 0;
+  padding: 0.75rem;
+  position: relative;
+  @include glass-effect;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.03) 0%, transparent 100%);
+    pointer-events: none;
+  }
+}
+
+.monthHeader {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: $text-primary;
+  margin: 0 0 0.625rem 0;
+  padding-bottom: 0.5rem;
+}
+
+.monthCount {
+  color: $text-secondary;
+  font-weight: 500;
+}
+
+.monthHolidayList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.emptyMonth {
+  text-align: center;
+  padding: 0.5rem;
+  color: $text-muted;
+  font-size: 0.6875rem;
+  font-style: italic;
+}
+
+// Holiday Item
+.holidayItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  @include gradient-bg(rgba(37, 37, 45, 0.8), rgba(45, 45, 55, 0.9));
+  border-radius: 0;
+  border-left: 4px solid $border-secondary;
+  position: relative;
+  transition: all 0.2s ease;
+  @include glass-effect;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    @include gradient-bg(rgba(45, 45, 55, 0.9), rgba(59, 130, 246, 0.1));
+    border-left-color: $accent-blue-light;
+    transform: translateX(2px);
+  }
+
+  &.today {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.2) 0%, rgba(217, 119, 6, 0.3) 100%);
+    border-left-width: 6px;
+    border-color: $accent-orange;
+    border-left-color: $accent-orange;
+    box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3);
+  }
+}
+
+.holidayDate {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 120px;
+}
+
+.date {
+  font-size: 1rem;
+  font-weight: 700;
+  color: $accent-blue-light;
+  letter-spacing: -0.02em;
+}
+
+.dayOfWeek {
+  font-size: 0.75rem;
+  color: $text-tertiary;
+  font-weight: 500;
+}
+
+.holidayPeriod {
+  font-size: 0.6875rem;
+  color: $accent-green-light;
+  font-weight: 600;
+  margin-top: 0.25rem;
+  padding: 0.125rem 0.375rem;
+  background: rgba(16, 185, 129, 0.15);
+  border-radius: 4px;
+  display: inline-block;
+  width: fit-content;
+}
+
+.holidayInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  align-items: flex-end;
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.holidayName {
+  font-size: 1rem;
+  font-weight: 700;
+  color: $text-primary;
+  text-align: right;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+// Badges
+.dateKindBadge {
+  font-size: 0.6875rem;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 4px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  position: relative;
+  @include badge-overlay;
+  
+  // 국경일 스타일
+  &.national {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.25) 0%, rgba(37, 99, 235, 0.3) 100%);
+    color: $accent-blue-light;
+    border: 1px solid rgba(59, 130, 246, 0.4);
+    box-shadow: 0 1px 3px rgba(59, 130, 246, 0.3);
+  }
+  
+  // 대체공휴일 스타일
+  &.substitute {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.25) 0%, rgba(220, 38, 38, 0.3) 100%);
+    color: $accent-red-light;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    box-shadow: 0 1px 3px rgba(239, 68, 68, 0.3);
+  }
+}
+
+.todayBadge {
+  position: absolute;
+  top: 0.375rem;
+  right: 0.375rem;
+  background: linear-gradient(135deg, $accent-orange 0%, $accent-orange-dark 100%);
+  color: $text-primary;
+  font-size: 0.6875rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  @include badge-overlay;
+}
+
