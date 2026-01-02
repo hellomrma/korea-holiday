@@ -1,0 +1,106 @@
+{
+  "2025": {
+    "1": [
+      { "date": 20250101, "name": "신정", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20250128, "name": "설날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 },
+      { "date": 20250129, "name": "설날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 3 },
+      { "date": 20250130, "name": "설날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 4 }
+    ],
+    "3": [
+      { "date": 20250301, "name": "삼일절", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ],
+    "5": [
+      { "date": 20250505, "name": "어린이날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20250506, "name": "어린이날 대체공휴일", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 },
+      { "date": 20250512, "name": "부처님오신날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 3 }
+    ],
+    "6": [
+      { "date": 20250606, "name": "현충일", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ],
+    "8": [
+      { "date": 20250815, "name": "광복절", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ],
+    "9": [
+      { "date": 20251005, "name": "추석", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20251006, "name": "추석", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 },
+      { "date": 20251007, "name": "추석", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 3 },
+      { "date": 20251008, "name": "추석 대체공휴일", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 4 }
+    ],
+    "10": [
+      { "date": 20251003, "name": "개천절", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20251009, "name": "한글날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 }
+    ],
+    "12": [
+      { "date": 20251225, "name": "크리스마스", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ]
+  },
+  "2026": {
+    "1": [
+      { "date": 20260101, "name": "신정", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ],
+    "2": [
+      { "date": 20260216, "name": "설날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20260217, "name": "설날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 },
+      { "date": 20260218, "name": "설날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 3 }
+    ],
+    "3": [
+      { "date": 20260301, "name": "삼일절", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ],
+    "5": [
+      { "date": 20260505, "name": "어린이날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20260524, "name": "부처님오신날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 }
+    ],
+    "6": [
+      { "date": 20260606, "name": "현충일", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ],
+    "8": [
+      { "date": 20260815, "name": "광복절", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ],
+    "9": [
+      { "date": 20260924, "name": "추석", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20260925, "name": "추석", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 },
+      { "date": 20260926, "name": "추석", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 3 }
+    ],
+    "10": [
+      { "date": 20261003, "name": "개천절", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20261009, "name": "한글날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 }
+    ],
+    "12": [
+      { "date": 20261225, "name": "크리스마스", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ]
+  },
+  "2027": {
+    "1": [
+      { "date": 20270101, "name": "신정", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20270206, "name": "설날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 },
+      { "date": 20270207, "name": "설날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 3 },
+      { "date": 20270208, "name": "설날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 4 }
+    ],
+    "3": [
+      { "date": 20270301, "name": "삼일절", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ],
+    "5": [
+      { "date": 20270505, "name": "어린이날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20270513, "name": "부처님오신날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 }
+    ],
+    "6": [
+      { "date": 20270606, "name": "현충일", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ],
+    "8": [
+      { "date": 20270815, "name": "광복절", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ],
+    "9": [
+      { "date": 20271013, "name": "추석", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20271014, "name": "추석", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 },
+      { "date": 20271015, "name": "추석", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 3 }
+    ],
+    "10": [
+      { "date": 20271003, "name": "개천절", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 },
+      { "date": 20271009, "name": "한글날", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 2 }
+    ],
+    "12": [
+      { "date": 20271225, "name": "크리스마스", "isHoliday": true, "dateKind": "01", "dateKindName": "국경일", "seq": 1 }
+    ]
+  }
+}
+

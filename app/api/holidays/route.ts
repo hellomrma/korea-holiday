@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server'
 // @ts-ignore - fast-xml-parser 타입 정의
 import { XMLParser } from 'fast-xml-parser'
+import { readFileSync } from 'fs'
+import { join } from 'path'
 
 interface HolidayItem {
   dateKind: string // 01: 국경일, 02: 기념일, 03: 24절기, 04: 잡절
@@ -200,6 +202,39 @@ export async function GET(request: Request) {
     })
   } catch (error) {
     console.error('공휴일 API 오류:', error)
+    
+    // 백업 데이터 확인 (2025, 2026, 2027년만 지원)
+    try {
+      const yearNum = parseInt(year)
+      const monthNum = parseInt(month)
+      
+      // 백업 데이터 파일 읽기
+      const backupFilePath = join(process.cwd(), 'app', 'data', 'backup-holidays.json')
+      const backupData = JSON.parse(readFileSync(backupFilePath, 'utf-8'))
+      const backupYear = backupData[yearNum.toString()]
+      
+      if (backupYear && backupYear[monthNum.toString()]) {
+        const backupMonthData = backupYear[monthNum.toString()] as Array<{
+          date: number
+          name: string
+          isHoliday: boolean
+          dateKind: string
+          dateKindName: string
+          seq: number
+        }>
+        
+        console.log(`백업 데이터 사용: ${year}년 ${month}월`)
+        return NextResponse.json({
+          year: yearNum,
+          month: monthNum,
+          holidays: backupMonthData.filter(item => item.isHoliday),
+        })
+      }
+    } catch (backupError) {
+      console.error('백업 데이터 읽기 오류:', backupError)
+    }
+    
+    // 백업 데이터도 없는 경우
     return NextResponse.json(
       { error: '공휴일 정보를 가져오는 중 오류가 발생했습니다.' },
       { status: 500 }
